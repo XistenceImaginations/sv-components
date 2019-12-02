@@ -1,0 +1,27 @@
+{
+  "name": "sv-components",
+  "version": "1.0.0",
+  "devDependencies": {
+    "node-sass": "^4.13.0",
+    "postcss": "^7.0.23",
+    "pug": "^2.0.4",
+    "pug2svelte": "0.0.2-alpha.9",
+    "rollup": "^1.12.0",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-livereload": "^1.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-svelte": "^5.0.3",
+    "rollup-plugin-terser": "^5.1.2",
+    "svelte": "^3.0.0",
+    "svelte-preprocess": "^3.2.6",
+    "svelte-preprocess-sass": "^0.2.0"
+  },
+  "dependencies": {
+    "sirv-cli": "^0.4.4"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public"
+  }
+}

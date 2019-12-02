@@ -1,0 +1,13 @@
+$colorVariation: 10%;
+
+$themeBg           : rgb( 31,  31,  31);
+$themeFg           : rgb(220, 220, 220);
+$themeText         : $themeFg;
+$themeTextInverse  : $themeBg;
+$themePrimary      : rgb(  0, 127, 255);/*lighten(rgb(  0, 127, 255), $colorVariation);*/
+$themePrimaryText  : $themeText;
+$themeSecondary    : rgb(255, 127,   0);/*lighten(rgb(255, 127,   0), $colorVariation);*/
+$themeSecondaryText: $themeTextInverse;
+$themeShadow       : rgb(  0,   0,   0);
+$positive          : rgb(  0, 191,   0);
+$negative          : rgb(191,   0,   0);

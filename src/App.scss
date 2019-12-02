@@ -1,0 +1,70 @@
+// TODO right now this important several times, reduce to just one inclusion
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web&display=swap"); // import page font
+@import 'themes/theme-light';
+//@import 'themes/theme-dark';
+
+:root {
+    --bg-color             : #{$themeBg};
+    --fg-color             : #{$themeFg};
+    --font-main            : 'Titillium Web', sans-serif;
+    --font-size            : 16px;
+    --text-color           : #{$themeText};
+    --text-color-light     : #{lighten($themeText, $colorVariation)};
+    --text-color-inverse   : #{$themeTextInverse};
+    --text-shadow-dark     : 0 0 10px #{fade-out($themeShadow, 0)};
+    --box-shadow-dark      : 0 10px 20px #{fade-out($themeShadow, .75)};
+    --primary-color        : #{$themePrimary};
+    --primary-color-light  : #{lighten($themePrimary, $colorVariation)};
+    --primary-color-dark   : #{darken($themePrimary, $colorVariation)};
+    --primary-text-color   : #{$themePrimaryText};
+    --secondary-color      : #{$themeSecondary};
+    --secondary-color-light: #{lighten($themeSecondary, $colorVariation)};
+    --secondary-color-dark : #{darken($themeSecondary, $colorVariation)};
+    --secondary-text-color : #{$themeSecondaryText};
+    --positive-color       : #{$positive};
+    --positive-color-light : #{lighten($positive, $colorVariation)};
+    --positive-color-dark  : #{darken($positive, $colorVariation)};
+    --positive-text-color  : #{$themeSecondaryText};
+    --negative-color       : #{$negative};
+    --negative-color-light : #{lighten($negative, $colorVariation)};
+    --negative-color-dark  : #{darken($negative, $colorVariation)};
+    --negative-text-color  : #{$themeSecondaryText};
+    --overlay-dark         : #{fade-out($themeBg, .5)};
+    --bar-gradient         : linear-gradient(
+        180deg,
+        #{change-color($themeShadow, $alpha:  .5 )}   0%,
+        #{change-color($themeShadow, $alpha:  .25)}  75%,
+        #{change-color($themeShadow, $alpha: 0   )} 100%);
+
+
+    --debug-color          : rgba(255,0,255,.25);
+}
+
+/**
+ * Globally shared SCSS, including global variables and mixins.
+ * TODO:
+ * - later, split into small parts and import
+ */
+$xs: 0;
+$sm: 600px;
+$md: 768px;
+$lg: 1024px;
+$breakPoints: 'xs', 'sm', 'md', 'lg';
+ 
+ /**
+  * Mixin to return a specific PX-value for a given breakpoint-key (as defined above).
+  * Mainly used for other mixins to iterate over all breakpoints and to generate CSS-Classes,
+  * That way other mixins can reference neutral keys ('xs', 'sm', ...) instead of fixed PX-values.
+  */
+@function bp($key) { // TODO rename to something short but speaking
+    @if 'xs' == $key {
+        @return $xs;
+    } @else if 'sm' == $key {
+        @return $sm;
+    } @else if 'md' == $key {
+        @return $md;
+    } @else if 'lg' == $key {
+        @return $lg;
+    }
+    @return $xs;
+}
