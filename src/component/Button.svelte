@@ -1,18 +1,23 @@
 <template lang="pug">
     .svButton(class="{styleType}")
         .svButton__text(data-label="{label}",bind:this="{elm}")
+            +if('icon')
+                i(class="icon-{icon}")
             slot
 </template>
 
 <script>
     export let type;
+    export let icon = undefined;
 
     let elm;
+    let foo = false;
 
     $: styleType = type.split(' ').map(s => 'svButton--' + (s || 'default')).join(' ');
     $: label     = elm ? elm.innerText : '';
 
     // TODO add states: 'disabled', 'error'. Based on some states change/prevent event behaviour(s)
+    // TODO option to place icon in relation to text (left|right|top|bottom)
 </script>
 
 <style lang="scss" global>
@@ -20,14 +25,14 @@
 
     $svButtonFlashSize: 8px;
 
-    @keyframes foo {
+    @keyframes foo { //TODO rename
         0%   { visibility: visible; top: 0; left: 0; bottom: 0; right: 0; opacity: .75; border-radius: 0; }
         100% { visibility: visible; top: -$svButtonFlashSize; left: -$svButtonFlashSize; bottom: -$svButtonFlashSize; right: -$svButtonFlashSize; opacity: 0; border-radius: $svButtonFlashSize; }
     }
 
     .svButton {
-        background-color: transparent; /*TODO use theme light/dark aspects*/
-        border: 1px solid rgba(0, 0, 0, .5); /*TODO use theme light/dark aspects*/
+        background-color: transparent;
+        border: 1px solid var(--text-color-alpha);
         color: var(--fg-color);
         font-weight: bold;
         display: inline-block;
@@ -53,8 +58,8 @@
         }
 
         &:hover {
-            background-color: rgba(255, 255, 255, .2); /*TODO use theme light/dark aspects*/
-            border: 1px solid rgba(0, 0, 0, .7); /*TODO use theme light/dark aspects*/
+            background-color: var(--text-color-alpha);
+            border: 1px solid var(--text-color);
 
             .svButton {
                 &__text {
@@ -76,6 +81,10 @@
                 left: 0;
                 transform: translateY(100%);
                 transition: transform 250ms;
+            }
+
+            & > i {
+                margin-right: 8px; // TODO use em
             }
         }
 

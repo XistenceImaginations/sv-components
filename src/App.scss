@@ -1,43 +1,50 @@
 // TODO right now this important several times, reduce to just one inclusion
-@import url("https://fonts.googleapis.com/css?family=Titillium+Web&display=swap"); // import page font
-@import 'themes/theme-light';
-//@import 'themes/theme-dark';
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web&display=swap"); // import page font TODO to theme
+//@import 'themes/theme-light';
+@import 'themes/theme-dark';
 
 :root {
-    --bg-color             : #{$themeBg};
-    --fg-color             : #{$themeFg};
-    --font-main            : 'Titillium Web', sans-serif;
-    --font-size            : 16px;
-    --text-color           : #{$themeText};
-    --text-color-light     : #{lighten($themeText, $colorVariation)};
-    --text-color-inverse   : #{$themeTextInverse};
-    --text-shadow-dark     : 0 0 10px #{fade-out($themeShadow, 0)};
-    --box-shadow-dark      : 0 10px 20px #{fade-out($themeShadow, .75)};
-    --primary-color        : #{$themePrimary};
-    --primary-color-light  : #{lighten($themePrimary, $colorVariation)};
-    --primary-color-dark   : #{darken($themePrimary, $colorVariation)};
-    --primary-text-color   : #{$themePrimaryText};
-    --secondary-color      : #{$themeSecondary};
-    --secondary-color-light: #{lighten($themeSecondary, $colorVariation)};
-    --secondary-color-dark : #{darken($themeSecondary, $colorVariation)};
-    --secondary-text-color : #{$themeSecondaryText};
-    --positive-color       : #{$positive};
-    --positive-color-light : #{lighten($positive, $colorVariation)};
-    --positive-color-dark  : #{darken($positive, $colorVariation)};
-    --positive-text-color  : #{$themeSecondaryText};
-    --negative-color       : #{$negative};
-    --negative-color-light : #{lighten($negative, $colorVariation)};
-    --negative-color-dark  : #{darken($negative, $colorVariation)};
-    --negative-text-color  : #{$themeSecondaryText};
-    --overlay-dark         : #{fade-out($themeBg, .5)};
-    --bar-gradient         : linear-gradient(
+    --bg-color              : #{$themeBg};
+    --fg-color              : #{$themeFg};
+    --font-main             : 'Titillium Web', sans-serif; // TODO to/from theme
+    --font-size             : 16px; // TODO to/from theme
+    --element-bg-color      : #{fade-out($themeFg, .85)};
+    --element-bg-color-alpha: #{fade-out($themeFg, .95)};
+    --text-color            : #{$themeText};
+    --text-color-alpha      : #{fade-out($themeText, .5)};
+    --text-color-light      : #{lighten($themeText, $colorVariation)};
+    --text-color-inverse    : #{$themeTextInverse};
+    --text-shadow-dark      : 0 0 10px #{fade-out($themeShadow, 0)};
+    --box-shadow-dark       : 0 10px 20px #{fade-out($themeShadow, .75)};
+    --primary-color         : #{$themePrimary};
+    --primary-color-alpha   : #{fade-out($themePrimary, .5)};
+    --primary-color-light   : #{lighten($themePrimary, $colorVariation)};
+    --primary-color-dark    : #{darken($themePrimary, $colorVariation)};
+    --primary-text-color    : #{$themePrimaryText};
+    --secondary-color       : #{$themeSecondary};
+    --secondary-color-alpha : #{fade-out($themeSecondary, .5)};
+    --secondary-color-light : #{lighten($themeSecondary, $colorVariation)};
+    --secondary-color-dark  : #{darken($themeSecondary, $colorVariation)};
+    --secondary-text-color  : #{$themeSecondaryText};
+    --positive-color        : #{$positive};
+    --positive-color-alpha  : #{fade-out($positive, .5)};
+    --positive-color-light  : #{lighten($positive, $colorVariation)};
+    --positive-color-dark   : #{darken($positive, $colorVariation)};
+    --positive-text-color   : #{$themeSecondaryText};
+    --negative-color        : #{$negative};
+    --negative-color-alpha  : #{fade-out($negative, .5)};
+    --negative-color-light  : #{lighten($negative, $colorVariation)};
+    --negative-color-dark   : #{darken($negative, $colorVariation)};
+    --negative-text-color   : #{$themeSecondaryText};
+    --overlay-dark          : #{fade-out($themeBg, .5)};
+    --bar-gradient          : linear-gradient(
         180deg,
         #{change-color($themeShadow, $alpha:  .5 )}   0%,
         #{change-color($themeShadow, $alpha:  .25)}  75%,
         #{change-color($themeShadow, $alpha: 0   )} 100%);
 
 
-    --debug-color          : rgba(255,0,255,.25);
+    --debug-color           : rgba(255,0,255,.25);
 }
 
 /**

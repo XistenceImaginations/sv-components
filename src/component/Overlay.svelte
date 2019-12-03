@@ -15,7 +15,7 @@
     $svOverlayGradientStart: change-color($themeShadow, $alpha: 0);
     $svOverlayGradientEnd: change-color($themeShadow, $alpha: .5);
 
-    .svTile.hovered .svOverlay{ // TODO HACK, as events and props aren't sufficient as far as it can be seen for now
+    .svTile.hovered .svOverlay{ // TODO HACK, as events and props aren't sufficient as far as it can be seen - for now
         opacity: 1;
         transform: translateY(0);
     }

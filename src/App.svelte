@@ -20,20 +20,31 @@
 
         Title(size="2") Buttons
         Section
-            Button(type="default") Default
-            Button(type="default blinking") Default Blinking
-            br
-            br
-            Button(type="primary") Primary
-            Button(type="primary blinking") Primary Blinking
-            br
-            br
-            Button(type="secondary") Secondary
-            Button(type="secondary blinking") Secondary Blinking
-            br
-            br
-            Button(type="disabled") Disabled
-            Button(type="disabled blinking") Disabled Blinking
+            Title(size="5") Single buttons
+            Section
+                Button(type="default") Default
+                Button(type="default blinking") Default Blinking
+                Button(icon="picture",type="default") Default with icon
+                br
+                br
+                Button(type="primary") Primary
+                Button(type="primary blinking") Primary Blinking
+                Button(icon="picture",type="primary") Primary with icon
+                br
+                br
+                Button(type="secondary") Secondary
+                Button(type="secondary blinking") Secondary Blinking
+                Button(icon="picture",type="secondary") Secondary with icon
+                br
+                br
+                Button(type="disabled") Disabled
+                Button(type="disabled blinking") Disabled Blinking
+                Button(icon="picture",type="disabled") Disabled with icon
+            Title(size="5") Buttons in a group panel
+            Section
+                ButtonGroup
+                    +each('Array(10) as _, i')
+                        Button(type="default") Default
 
         Title(size="2") Checkboxes
         Section
@@ -45,11 +56,47 @@
 
         Title(size="2") Radios
         Section
-            CheckBox(type="radio") Default unchecked
-            CheckBox(type="radio",checked) Default checked
+            CheckBox(type="radio",name="foo1") Default unchecked
+            CheckBox(type="radio",name="foo1",checked) Default checked
             br
-            CheckBox(type="radio",disabled) Disabled unchecked
-            CheckBox(type="radio",disabled,checked) Disabled checked
+            CheckBox(type="radio",name="foo2",disabled) Disabled unchecked
+            CheckBox(type="radio",name="foo2",disabled,checked) Disabled checked
+
+        Title(size="2") Input fields
+        Section
+            Title(size="5") Standard text input fields
+            Section
+                Field
+                Field(value="default value")
+                Field(placeholder="Placeholder")
+                Field(placeholder="Placeholder",value="default value")
+            Title(size="5") Standard text input fields (disabled)
+            Section
+                Field(disabled)
+                Field(disabled,value="default value")
+                Field(disabled,placeholder="Placeholder")
+                Field(disabled,placeholder="Placeholder",value="default value")
+            Title(size="5") Password input fields
+            Section
+                Field(type="password")
+                Field(type="password",value="default value")
+                Field(type="password",placeholder="Placeholder")
+                Field(type="password",placeholder="Placeholder",value="default value")
+            Title(size="5") Password input fields (disabled)
+            Section
+                Field(type="password",disabled)
+                Field(type="password",disabled,value="default value")
+                Field(type="password",disabled,placeholder="Placeholder")
+                Field(type="password",disabled,placeholder="Placeholder",value="default value")
+
+        Title(size="2") Dialogs
+        Section
+            Dialog(id="dialogA")
+                Title(size="1") Dialog A
+            Dialog(id="dialogB")
+                Title(size="1") Dialog B
+            button(on:click="{showDialog}",data-dialog="dialogA") Show Dialog A
+            button(on:click="{showDialog}",data-dialog="dialogB") Show Dialog B
 
         Title(size="3") Grid
         Grid
@@ -65,21 +112,21 @@
                     .wrapper(slot="front",style="box-shadow:0 10px 20px rgba(0,0,0,.25)")
                         Image(url="{images[0].url}",focal="{images[0].focal}")
                         Overlay
-                            Label {images[0].desc}
+                            Label Click to flip
                             a(href="foo",style="pointer-events:all;")
                                 Icon(icon="help")
                     .wrapper(slot="back",style="padding:1em;")
-                        Article(title="Image Title") Some image description.
+                        Article(title="Image Title") {images[0].desc} (Click to flip back)
             Tile(width="6",height="3",clip="{false}",gap="{gridGap}")
                 FlipPanel
                     .wrapper(slot="front",style="box-shadow:0 10px 20px rgba(0,0,0,.25)")
                         Image(url="{images[1].url}",focal="{images[1].focal}")
                         Overlay
-                            Label {images[1].desc}
+                            Label Click to flip
                             a(href="foo",style="pointer-events:all;")
                                 Icon(icon="help")
                     .wrapper(slot="back",style="padding:1em;")
-                        Article(title="Image Title") Some image description.
+                        Article(title="Image Title") {images[1].desc} (Click to flip back)
 
         Title(size="2") Articles
         Section
@@ -87,6 +134,7 @@
 
         Title(size="2") Cards
         Section
+            Title(size="6") (Click on card to flip it)
             Card
                 .wrapper(slot="image")
                     Image(url="{images[0].url}",focal="{images[0].focal}")
@@ -105,26 +153,32 @@
 </template>
 
 <script>
-    import Article   from './component/Article.svelte';
-    import Button    from './component/Button.svelte';
-    import Card      from './component/Card.svelte';
-    import CheckBox  from './component/CheckBox.svelte';
-    import FlipPanel from './component/FlipPanel.svelte';
-    import Grid      from './component/Grid.svelte';
-    import Icon      from './component/Icon.svelte';
-    import IconBar   from './component/IconBar.svelte';
-    import Image     from './component/Image.svelte';
-    import Label     from './component/Label.svelte';
-    import NavBar    from './component/NavBar.svelte';
-    import Overlay   from './component/Overlay.svelte';
-    import Page      from './component/Page.svelte';
-    import Section   from './component/Section.svelte';
-    import Tile      from './component/Tile.svelte';
-    import Title     from './component/Title.svelte';
+    import EventBus from './lib/event-bus'; // Note: this should be imported before any component!
+
+    window.eventBus = new EventBus; // Note: this should be created before any component!
+
+    import Article     from './component/Article.svelte';
+    import Button      from './component/Button.svelte';
+    import ButtonGroup from './component/ButtonGroup.svelte';
+    import Card        from './component/Card.svelte';
+    import CheckBox    from './component/CheckBox.svelte';
+    import Dialog      from './component/Dialog.svelte';
+    import Field       from './component/Field.svelte';
+    import FlipPanel   from './component/FlipPanel.svelte';
+    import Grid        from './component/Grid.svelte';
+    import Icon        from './component/Icon.svelte';
+    import IconBar     from './component/IconBar.svelte';
+    import Image       from './component/Image.svelte';
+    import Label       from './component/Label.svelte';
+    import NavBar      from './component/NavBar.svelte';
+    import Overlay     from './component/Overlay.svelte';
+    import Page        from './component/Page.svelte';
+    import Section     from './component/Section.svelte';
+    import Tile        from './component/Tile.svelte';
+    import Title       from './component/Title.svelte';
 
     let debug   = true;
     let gridGap = '.5em';
-    // WARNING: images used here for testing are under my personal copyright. If you can load/see them, enjoy the view - but i guess if won't be even possible. Then you should replace the urls with any other image you like.
     let images  = [
         { focal: {y: 30}, desc: 'Crystal', width: 4, height: 2, url: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/389a4067-564a-4b24-a371-8799dc5d668e/ddkr6rp-baa0678d-d1cd-4acd-9c57-1b52473984dc.jpg/v1/fill/w_1132,h_706,q_70,strp/crystal_by_xistenceimaginations_ddkr6rp-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9Nzk4IiwicGF0aCI6IlwvZlwvMzg5YTQwNjctNTY0YS00YjI0LWEzNzEtODc5OWRjNWQ2NjhlXC9kZGtyNnJwLWJhYTA2NzhkLWQxY2QtNGFjZC05YzU3LTFiNTI0NzM5ODRkYy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.GaBz4wCgIRZxYFnSc3cNhrrTnDNDy2YYUvWcsB-lRzg' },
         { desc: 'Project 138', width: 1, height: 2, url: 'https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/389a4067-564a-4b24-a371-8799dc5d668e/ddkdpw2-7d2c202b-e322-474b-a8b1-cfd8ace25184.jpg/v1/fill/w_1280,h_2021,q_75,strp/project_138_by_xistenceimaginations_ddkdpw2-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MjAyMSIsInBhdGgiOiJcL2ZcLzM4OWE0MDY3LTU2NGEtNGIyNC1hMzcxLTg3OTlkYzVkNjY4ZVwvZGRrZHB3Mi03ZDJjMjAyYi1lMzIyLTQ3NGItYThiMS1jZmQ4YWNlMjUxODQuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.9OOsIOiBUvVKDZusMbV1YQB6X_qTWnkzVULBX6WFfc8' },
@@ -141,6 +195,10 @@
         if (e.ctrlKey) {
             alert('Special');
         }
+    }
+
+    function showDialog(e) {
+        window.eventBus.dispatch('sv-dialog', {id: e.target.dataset.dialog});
     }
 </script>
 

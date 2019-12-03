@@ -1,6 +1,6 @@
 <template lang="pug">
     label.svCheckBox
-        input(type="{inputType}",{value},{checked},{disabled})
+        input(type="{inputType}",{value},{checked},{disabled},{name})
         span.svCheckBox__checkmark
         span.svCheckBox__label
             slot
@@ -11,6 +11,7 @@
     export let checked = false;
     export let disabled = false;
     export let type = 'check';
+    export let name = undefined;
 
     $: inputType = type === 'check' ? 'checkbox': 'radio';
 </script>
@@ -82,15 +83,20 @@
             & ~ .svCheckBox__checkmark:after {
                 border-radius: 50%; // TODO em?
             }
+
             &:checked ~ .svCheckBox__checkmark:after {
                 border-radius: 50%; // TODO em?
-                //background-color: red;
+                background-color: $svCheckBoxActive;
                 transform: rotate(0deg);
                 border-width: 2px;
                 left: .25em;
                 top: .25em;
                 width: .5em;
                 height: .5em;
+            }
+
+            &:checked:disabled ~ .svCheckBox__checkmark:after {
+                background-color: $svCheckBoxDisabled;
             }
         }
 
