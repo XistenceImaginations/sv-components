@@ -1,6 +1,13 @@
 {
   "name": "sv-components",
   "version": "1.0.0",
+  "description": "A library of Svelte-Components",
+  "keywords": [ "svelte", "component", "components", "framework" ],
+  "homepage": "https://github.com/XistenceImaginations/sv-components",
+  "author": {
+      "name": "K. P. Uecker aka Xistence Imaginations"
+  },
+  "license": "MIT",
   "devDependencies": {
     "node-sass": "^4.13.0",
     "postcss": "^7.0.23",

@@ -4,7 +4,7 @@
     Additionally you can define a 'gap' that is a sort of padding around the tile content and the tile itself.
 -->
 <template lang="pug">
-    .svTile(data-tileSize="{tileSize}",on:mouseenter="{foo}",on:mouseleave="{bar}",class:hovered,class="{clipped}")
+    .svTile(data-tileSize="{tileSize}",on:mouseenter="{enter}",on:mouseleave="{leave}",class:hovered,class="{clipped}")
         .svTile__wrapper
             .svTile__wrapper_content(style="{tilePadding}")
                 .svTile__wrapper_content_view
@@ -23,14 +23,12 @@
     $: tilePadding = 'padding:' + gap + ';';
     $: clipped     = clip ? '' : 'svTile--unclipped';
 
-    function foo (e) {
+    function enter (e) {
         hovered = true;
-        console.log('in');
     }
 
-    function bar (e) {
+    function leave (e) {
         hovered = false;
-        console.log('out');
     }
 </script>
 

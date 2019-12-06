@@ -14,11 +14,11 @@
 
     .svNavBar {
         font-size: map-get($navHeights, 'xs');
-        position: fixed;
-        width: 100vw;
-        top: 0;
-        left: 0;
-        z-index: 1;
+        //position: fixed;
+        width: 100%; // 100vw;
+        //top: 0;
+        //left: 0;
+        //z-index: 1;
         font-weight: bold;
         background: var(--bar-gradient);
 
@@ -46,9 +46,6 @@
             $size: map-get($navHeights, $bp); // fetches the height for the nav
 
             @media only screen and (min-width: #{bp($bp)}) { // bp() from App.scss return a PX-value for a given breakpoint-key
-                :global(body) {
-                    padding-top: $size;
-                }
                 .svNavBar {
                     height: $size;
                     font-size: $size;

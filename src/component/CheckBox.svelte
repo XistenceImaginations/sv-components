@@ -1,3 +1,4 @@
+<!-- TODO rename to Toggle? -->
 <template lang="pug">
     label.svCheckBox
         input(type="{inputType}",{value},{checked},{disabled},{name})

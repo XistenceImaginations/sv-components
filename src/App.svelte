@@ -1,5 +1,6 @@
 <template lang="pug">
-    Page
+    Dialog
+    Header
         NavBar
             span(slot="title") Svelte Components Test Page
             div(slot="icons")
@@ -8,8 +9,9 @@
                     Icon(title='Tumblr'    ,url="http://tumblr.com"    ,icon="tumblr")
                     Icon(title='Artstation',url="http://artstation.com",icon="help")
                     Icon(title='DeviantArt',url="http://deviantart.com",icon="deviantart")
-
-        Title(size="3") Titles
+        Badge(close="2.5s")
+    Page
+        Title(size="2") Titles
         Section
             Title(size="1") Title Size 1
             Title(size="2") Title Size 2
@@ -91,12 +93,31 @@
 
         Title(size="2") Dialogs
         Section
-            Dialog(id="dialogA")
-                Title(size="1") Dialog A
-            Dialog(id="dialogB")
-                Title(size="1") Dialog B
-            button(on:click="{showDialog}",data-dialog="dialogA") Show Dialog A
-            button(on:click="{showDialog}",data-dialog="dialogB") Show Dialog B
+            Description(title="About dialogs")
+                p
+                    | You define just one dialog in your page, the rest will happen via the
+                    | global JS-function 'dialog.show' and data-attributes on the element
+                    | triggering that function.
+            button(on:click="{dialog.show}",data-title="Some title",data-text="Some text") Show Neutral Dialog
+            button(on:click="{dialog.show}",data-type="success",data-title="Success :)",data-text="Success Text") Show Success Dialog
+            button(on:click="{dialog.show}",data-type="error",data-title="Error :(",data-text="Success Text") Show Error Dialog
+            button(on:click="{dialog.show}",data-type="info",data-title="Info!",data-text="Info Text") Show Info Dialog
+            button(on:click="{dialog.show}",data-type="question",data-title="Question?",data-text="Question Text") Show Question Dialog
+        Title(size="2") Badges
+        Section
+            Description(title="About bagdes")
+                p
+                    | You define just one badge in your page, the rest will happen via the
+                    | global JS-function 'badge.show' and data-attributes on the element
+                    | triggering that function.
+                p
+                    | The Badge itself has an option to define it close-behaviour. You can
+                    | either define that it should close by clicking a 'close'-icon or you
+                    | can define a auto-close time value (like '1s', '250ms', '2.5s', etc.)
+            button(on:click="{badge.show}",data-type="success",data-title="Success :)",data-text="Success Text") Show Success Batch
+            button(on:click="{badge.show}",data-type="error",data-title="Error :(",data-text="Error Text") Show Error Batch
+            button(on:click="{badge.show}",data-type="info",data-title="Info!",data-text="Info Text") Show Info Batch
+            button(on:click="{badge.show}",data-type="question",data-title="Question?",data-text="Question Text") Show Question Batch
 
         Title(size="3") Grid
         Grid
@@ -150,6 +171,24 @@
                     Image(url="{images[2].url}",focal="{images[2].focal}")
                 span(slot="shortDesc") Short Description
                 span(slot="longDesc") Long Description
+
+        Title(size="2") Accordion
+        Section
+            Accordion
+                AccordionEntry(title="Tab A") Content A
+                AccordionEntry(title="Tab B") Content B
+                AccordionEntry(title="Tab C") Content C
+                AccordionEntry(title="Tab D") Content D
+                AccordionEntry(title="Tab E") Content E
+
+        Title(size="2") Slider
+        Section TO BE DONE
+
+        Title(size="2") Teaser
+        Section TO BE DONE
+
+        Title(size="2") Tabbed pane
+        Section TO BE DONE
 </template>
 
 <script>
@@ -157,25 +196,30 @@
 
     window.eventBus = new EventBus; // Note: this should be created before any component!
 
-    import Article     from './component/Article.svelte';
-    import Button      from './component/Button.svelte';
-    import ButtonGroup from './component/ButtonGroup.svelte';
-    import Card        from './component/Card.svelte';
-    import CheckBox    from './component/CheckBox.svelte';
-    import Dialog      from './component/Dialog.svelte';
-    import Field       from './component/Field.svelte';
-    import FlipPanel   from './component/FlipPanel.svelte';
-    import Grid        from './component/Grid.svelte';
-    import Icon        from './component/Icon.svelte';
-    import IconBar     from './component/IconBar.svelte';
-    import Image       from './component/Image.svelte';
-    import Label       from './component/Label.svelte';
-    import NavBar      from './component/NavBar.svelte';
-    import Overlay     from './component/Overlay.svelte';
-    import Page        from './component/Page.svelte';
-    import Section     from './component/Section.svelte';
-    import Tile        from './component/Tile.svelte';
-    import Title       from './component/Title.svelte';
+    import Accordion      from './component/Accordion.svelte';
+    import AccordionEntry from './component/AccordionEntry.svelte';
+    import Article        from './component/Article.svelte';
+    import Badge          from './component/Badge.svelte';
+    import Button         from './component/Button.svelte';
+    import ButtonGroup    from './component/ButtonGroup.svelte';
+    import Card           from './component/Card.svelte';
+    import CheckBox       from './component/CheckBox.svelte';
+    import Description    from './component/Description.svelte';
+    import Dialog         from './component/Dialog.svelte';
+    import Field          from './component/Field.svelte';
+    import FlipPanel      from './component/FlipPanel.svelte';
+    import Grid           from './component/Grid.svelte';
+    import Header         from './component/Header.svelte';
+    import Icon           from './component/Icon.svelte';
+    import IconBar        from './component/IconBar.svelte';
+    import Image          from './component/Image.svelte';
+    import Label          from './component/Label.svelte';
+    import NavBar         from './component/NavBar.svelte';
+    import Overlay        from './component/Overlay.svelte';
+    import Page           from './component/Page.svelte';
+    import Section        from './component/Section.svelte';
+    import Tile           from './component/Tile.svelte';
+    import Title          from './component/Title.svelte';
 
     let debug   = true;
     let gridGap = '.5em';
