@@ -21,13 +21,15 @@
         //z-index: 1;
         font-weight: bold;
         background: var(--bar-gradient);
+        transition: height    var(--animation-duration-slow),
+                    font-size var(--animation-duration-slow);
 
         &__title {
             display: flex;
             width: 100%;
             min-height: 1em;
             line-height: 1em;
-            padding: .4em 1em 0 1em;
+            padding: .75em 1em 0 1em;
             font-size: .35em;
             text-shadow: var(--text-shadow-dark);
 
@@ -55,4 +57,11 @@
     }
 
     @include bp($breakPoints);
+
+    html:not([data-scroll='0']) {
+        .svNavBar {
+            height: 2.5rem; // TODO specific values for all breakpoints
+            font-size: 2.5rem; // TODO specific values for all breakpoints
+        }
+    }
 </style>

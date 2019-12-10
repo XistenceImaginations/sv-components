@@ -1,18 +1,29 @@
 /**
  * Main class to access all functions and utils.
  */
+import doc       from './doc';
 import event     from './event';
 import imageUtil from './image';
 
 class X {
 
+    get doc() {
+        return doc;
+    }
+
     // providing an instance of 'Event'
-    get event(){
+    get event() {
         return event;
     }
 
     get imageUtil() {
         return imageUtil;
+    }
+
+    init () {
+        this.event.isReady(() => {
+            this.doc.init();
+        });
     }
 
     /**
@@ -33,7 +44,7 @@ class X {
      * This method will translate the single-attributes 'primary', 'secondary', 'error' and 'success'
      *  into a corresponding CSS-modifier-class using the theme and custom-properties.
      */
-    shaping(props){
+    shaping (props) {
         return (props && props.primary   ? '--primary'   : undefined) ||
                (props && props.secondary ? '--secondary' : undefined) ||
                (props && props.error     ? '--error'     : undefined) ||

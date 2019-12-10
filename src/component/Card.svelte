@@ -39,6 +39,7 @@
             display: grid;
             justify-items: stretch;
             align-items: stretch;
+            box-shadow: var(--box-shadow-dark);
         }
 
         &__front {

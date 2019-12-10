@@ -25,7 +25,7 @@
 
     $svButtonFlashSize: 8px;
 
-    @keyframes foo { //TODO rename
+    @keyframes pulse { //TODO rename
         0%   { visibility: visible; top: 0; left: 0; bottom: 0; right: 0; opacity: .75; border-radius: 0; }
         100% { visibility: visible; top: -$svButtonFlashSize; left: -$svButtonFlashSize; bottom: -$svButtonFlashSize; right: -$svButtonFlashSize; opacity: 0; border-radius: $svButtonFlashSize; }
     }
@@ -39,7 +39,8 @@
         padding: .25em .75em;
         border-radius: 2px;
         cursor: pointer;
-        transition: background-color 250ms, border 250ms;
+        transition: background-color var(--animation-duration),
+                    border           var(--animation-duration);
         position: relative;
 
         &:before {
@@ -69,7 +70,7 @@
         }
 
         &__text {
-            transition: transform 250ms;
+            transition: transform var(--animation-duration);
             transform: translateY(0);
             position: relative;
             overflow: hidden;
@@ -80,7 +81,7 @@
                 top: 0;
                 left: 0;
                 transform: translateY(100%);
-                transition: transform 250ms;
+                transition: transform var(--animation-duration);
             }
 
             & > i {
@@ -139,9 +140,9 @@
             }
         }
 
-        &--blinking {
+        &--pulse {
             &:before {
-                animation: foo 500ms infinite;
+                animation: pulse 500ms infinite;
             }
         }
     }

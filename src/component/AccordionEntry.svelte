@@ -26,23 +26,51 @@
     $svAccordionEntryTitleHeight: 32px;
 
     .svAccordionEntry {
-        height: $svAccordionEntryTitleHeight;
-        transition: height 250ms;
-        overflow: hidden;
-
         &__title {
             background-color: var(--primary-color-light);
             color: white;
             width: 100%;
-            height: $svAccordionEntryTitleHeight;
+            padding: .5em;
+            font-size: 1.25em;
+            font-weight: bolder;
+
+            &::before {
+                font-family: 'xi_icon_collection';
+                font-size: .75em;
+                font-weight: lighter;
+                content: '\e87c';
+                margin-right: 8px;
+                color: rgba(255,255,255,.5);
+            }
+        }
+
+        &__content {
+            overflow: hidden;
+            height: 0;
+            margin: 0 .5em;
+            //max-height: 0;
+            //transition: max-height 500ms ease-out;
         }
 
         & + .svAccordionEntry {
-            border-top: 1px solid rgba(255,255,255,.2);
+            border-top: 1px solid  var(--primary-color-lighter);
         }
 
         &--expanded {
-            height: max-content;
+            .svAccordionEntry {
+                &__title {
+                    &::before {
+                        content: '\e87e';
+                    }
+                }
+
+                &__content {
+                    height: min-content;
+                    margin: .5em;
+                    //max-height: 80px;
+                    //transition: max-height 500ms ease-in;
+                }
+            }
 
             & + .svAccordionEntry {
                 border-top: 1px solid transparent;

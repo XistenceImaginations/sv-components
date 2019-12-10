@@ -1,7 +1,7 @@
 <template lang="pug">
-    .svDescription
-        .svDescription__title {title}
-        .svDescription__text
+    dl.svDescription
+        dt.svDescription__title {title}
+        dd.svDescription__text
             slot
 </template>
 
@@ -14,12 +14,23 @@
 
     .svDescription {
         &__title {
-            font-size: 1.5em;
+            font-weight: bold;
+            //font-style: italic;
+            font-size: 1.25em;
+            color: var(--text-color-light);
+
+            &::before {
+                content: '"';
+            }
+
+            &::after {
+                content: '"';
+            }
         }
 
         &__text {
-            padding-left: 1em;
-            margin-bottom: 1em;
+            //padding-left: 1em;
+            //margin-bottom: 1em;
         }
     }
 </style>

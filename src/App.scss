@@ -1,10 +1,37 @@
 // TODO right now this important several times, reduce to just one inclusion
+
+/**
+ * For now we're importing some stuff from the internet, like fonts. For sure
+ *  this can be optimized by having them locally and changing paths here. But
+ *  right now this wasn't important for me.
+ */
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web&display=swap"); // import page font TODO to theme
+
+/**
+ * By defining a theming file (which defines basic SCSS-vars) we can use different
+ *  themes. Note that this doesn't support theme-change during runtime. That might
+ *  be a point on the TODO-list (or not) for later.
+ * Just make one line below active, while having the rest out-commented.
+ */
 @import 'themes/theme-light';
 //@import 'themes/theme-dark';
 
+
+/**
+ * Custom Properties vs. SCSS-vars
+ *
+ * Focus here is on custom properties. They allow use to share variables w/o the
+ *  need important them in each component like with SCSS-vars (if they're defined
+ *  in a shared file).
+ * You can also change custom properties during runtime, while SCSS-vars only affect
+ *  things when you build the final code.
+ * So the point here is to use custom properties between components and to use
+ *  SCSS-vars mainly in a component itself.
+ */
 :root {
     --bg-color               : #{$themeBg};
+    --bg-color-dark          : #{darken($themeBg, $colorVariation)};
+    --bg-color-light         : #{lighten($themeBg, $colorVariation)};
     --fg-color               : #{$themeFg};
     --font-main              : 'Titillium Web', sans-serif; // TODO to/from theme
     --font-size              : 16px; // TODO to/from theme
@@ -14,8 +41,8 @@
     --text-color-alpha       : #{fade-out($themeText, .5)};
     --text-color-light       : #{lighten($themeText, $colorVariation)};
     --text-color-inverse     : #{$themeTextInverse};
-    --text-shadow-dark       : 0 0 10px #{fade-out($themeShadow, 0)};
-    --box-shadow-dark        : 0 10px 20px #{fade-out($themeShadow, .75)};
+    --text-shadow-dark       : 0 0 10px #{fade-out($themeShadow, 0)}; // TODO themeShadow isn't ideal at this point, we need a real shadow and a shadow as contrast to background
+    --box-shadow-dark        : 0 10px 20px rgba(0, 0, 0, .25); // TODO themeShadow isn't ideal at this point, we need a real shadow and a shadow as contrast to background // #{fade-out($themeShadow, .75)};
     --primary-color          : #{$themePrimary};
     --primary-color-alpha    : #{fade-out($themePrimary, .5)};
     --primary-color-light    : #{lighten($themePrimary, $colorVariation)};
@@ -50,6 +77,9 @@
         #{change-color($themeShadow, $alpha:  .5 )}   0%,
         #{change-color($themeShadow, $alpha:  .25)}  75%,
         #{change-color($themeShadow, $alpha: 0   )} 100%);
+    --animation-duration     : 250ms;
+    --animation-duration-fast: 175ms;
+    --animation-duration-slow: 375ms;
 
 
     --debug-color           : rgba(255,0,255,.25);
@@ -60,13 +90,22 @@
  * TODO:
  * - later, split into small parts and import
  */
+
+// BREAKPOINTS
 $xs: 0;
 $sm: 600px;
 $md: 768px;
 $lg: 1024px;
 $breakPoints: 'xs', 'sm', 'md', 'lg';
- 
- /**
+
+// Z-INDEX
+// TODO make theme/custom-props out of it?
+$z-content: 0;     // used for normal page content. range 0 - 999
+$z-float  : 1000;  // used for page content that needs to be above normal content. range 1000 - 1999
+$z-menu   : 2000;  // used for special element that always needs to be above any content, but not important enough to be a special control or ui element. range 2000 - 9999
+$z-ui     : 10000; // used for special ui elements that needs to be model or similar (like dialog). range 10000 >
+
+/**
   * Mixin to return a specific PX-value for a given breakpoint-key (as defined above).
   * Mainly used for other mixins to iterate over all breakpoints and to generate CSS-Classes,
   * That way other mixins can reference neutral keys ('xs', 'sm', ...) instead of fixed PX-values.
@@ -119,4 +158,11 @@ $breakPoints: 'xs', 'sm', 'md', 'lg';
         background-color: var(--negative-color-darker);
         border: 1px solid var(--negative-color);
     }
+}
+
+$svPageHatchLineColor: rgba(127, 63, 63, .5); // TODO to specific for now, rename/make mixin/or similar
+$svPageHatchBackColor: rgba(255, 0, 0, .1); // TODO to specific for now, rename/make mixin/or similar
+
+.--hatched {
+    background: repeating-linear-gradient(45deg, $svPageHatchLineColor, $svPageHatchLineColor 1px, $svPageHatchBackColor 1px, $svPageHatchBackColor 20px);
 }

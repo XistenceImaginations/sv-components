@@ -7,18 +7,9 @@
                 slot(name="back")
 </template>
 
-<!--
-  .xFlip(ref="flip")
-    .xFlip__card
-      .xFlip__card_front
-        slot(name="front")
-        .xFlip__shadow_front
-      .xFlip__card_back
-        slot(name="back")
-        .xFlip__shadow_back
--->
 <script>
     let flipped = false;
+    // TODO option to provide an element that flips back the panel (instead of flipping back by clicking the panel itself)
 
     $: flipStyle = flipped ? 'svFlipPanel--flipped' : '';
 
@@ -30,6 +21,7 @@
 <style lang="scss" global>
     @import '../App';
 
+    // TODO when in flip-animation: bring to front with z-index (maybe) otherwise some elements might overlapping flipped content, 'destroying' the visual immersion
     .svFlipPanel {
         perspective: 1000px;
         width: 100%;

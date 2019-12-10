@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    // TODO Dialog, Badge and Notifaction have a lot in common, create sort of abstract base component to extend from
+    // TODO Dialog, Notifaction have a lot in common, create sort of abstract base component to extend from
     export let id   = undefined;
     export let type = undefined;
     //TODO option to make dialog soft-modal (clicking outside closes), tough-modal (needs specific action), or overlay (no faded background, just dialog)
@@ -19,6 +19,10 @@
 
     $: styleType = type ? 'svDialog--' + type :'';
 
+    function close(e) {
+        isShown = false;
+    }
+
     window.eventBus.bind('sv-dialog', e => {
         // if id isn't set here we use this dialog as global one. if any event arrives that either ha no id, we use a possible title/text and show the global dialog
         // in all other cases id's have to match and an id must be prodived via event;
@@ -26,15 +30,12 @@
     });
     // TODO way to ad-hoc-creation of Dialog w/o adding the Dialog explicitely in code (using an event)
 
-    function close(e) {
-        isShown = false;
-    }
-
     /**
      * This is a listener for the global event, as theoretically there
-     *  should only be one instance of Badge. Practically there could be
+     *  should only be one instance of Dialog. Practically there could be
      *  many, they might all be triggered then by this.
      */
+    // TODO merge with event-bind above
     window.eventBus.bind('sv-dialog', e => {
         title = e.detail.title || 'N/A';
         text = e.detail.text || 'N/A';
@@ -43,10 +44,10 @@
     });
 
     /**
-     * This defines a global method to trigger a badge, as there should be only
-     *  one badge that is filled with information for the time being.
+     * This defines a global method to trigger a dialog, as there should be only
+     *  one dialog that is filled with information for the time being.
      */
-    window.dialog = {};
+    window.dialog = window.dialog || {};
     window.dialog.show = e => {
         if (e.target){
             window.eventBus.dispatch('sv-dialog', {
@@ -72,9 +73,9 @@
         width: 100vw;
         height: 100vh;
         background-color: transparent;
-        z-index: 10000;
+        z-index: $z-ui;
         overflow-y: scroll;
-        transition: background-color 250ms;
+        transition: background-color var(--animation-duration);
         display: block;
         pointer-events: none;
 
@@ -100,7 +101,7 @@
             transform: translate(-50%, calc(-50% - 20px));
             opacity: 0;
             box-shadow: var(--box-shadow-dark);
-            transition: transform 250ms, opacity 250ms;
+            transition: transform var(--animation-duration), opacity var(--animation-duration);
             border-radius: 4px;
 
             &_title {
@@ -162,7 +163,7 @@
             }
         }
 
-        &--question {
+        &--confirm {
             .svDialog {
                 &__window {
                     background: linear-gradient(

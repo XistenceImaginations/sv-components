@@ -7,7 +7,7 @@
     @import '../App';
 
     .svAccordion {
-        background: var(--primary-color);
+        background: var(--bg-color);
         border: 1px solid var(--primary-color);
     }
 </style>

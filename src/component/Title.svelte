@@ -37,6 +37,9 @@
                         $S: $mn + $s + ($d - ($s * $svTitleLevel)); // calculation of the final sze
                         font-size: #{$S};
                         margin: calc(#{$S} / 2) 0; // for now the top/bottom margin is just half (each) of the font-size
+                        @if $svTitleLevel <= 3 {
+                            border-bottom: 1px solid var(--text-color-alpha);
+                        }
                     }
                 }
             }

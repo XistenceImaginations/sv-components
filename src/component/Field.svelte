@@ -41,7 +41,7 @@
             border-bottom: 1px solid var(--text-color-alpha);
             border-radius: 3px;
             background-color: transparent;
-            transition: background-color 250ms;
+            transition: background-color var(--animation-duration);
             color: var(--text-color);
 
             &:not(:disabled) {
@@ -88,7 +88,9 @@
             right: 0;
             pointer-events: none;
             color: var(--text-color-alpha);
-            transition: color 250ms, transform 250ms, font-size 250ms;
+            transition: color     var(--animation-duration),
+                        transform var(--animation-duration),
+                        font-size var(--animation-duration);
         }
     }
 </style>

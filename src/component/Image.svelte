@@ -114,7 +114,7 @@
             background-position: 50% 50%;
             overflow: hidden;
             position: relative;
-            transition: transform 250ms;
+            transition: transform var(--animation-duration);
 
             &:hover {
                 /* TODO this scale the content, target is to just scale background-image. As it is placed by 'cover' this isn't easy via CSS for now*/

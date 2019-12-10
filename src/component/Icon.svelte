@@ -14,7 +14,7 @@
     .svIcon {
         color: var(--primary-color);
         padding: 0 .25em;
-        transition: color 250ms;
+        transition: color var(--animation-duration);
         text-decoration: none;
 
         &:hover {

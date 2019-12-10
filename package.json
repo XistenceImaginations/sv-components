@@ -9,6 +9,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "serialize-javascript": ">=2.1.1",
     "node-sass": "^4.13.0",
     "postcss": "^7.0.23",
     "pug": "^2.0.4",
