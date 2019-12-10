@@ -1,6 +1,10 @@
-# Grid component (for Svelte)
+# Svelte Component Library
 
-This is a lab-project to create a grid component using Svelte. It is based on the boilerplate-svelte-sass-pug project.
+This is a lab-project for mess around with components created with [Svelte](https://svelte.dev/). This is subject to change,
+ not ment for production code or environment and has so no support from my side for such things.
+It is more ment to be an example (one of many) how to do things in [Svelte](https://svelte.dev/).
+This project is based on a very plain [Svelte](https://svelte.dev/), in combination with [Pug](https://pugjs.org/api/getting-started.html) and [SCSS/SASS](https://sass-lang.com/).
+
 Demo-Page:
 > https://xistenceimaginations.github.io/sv-components/
 
@@ -25,7 +29,11 @@ After the task has started you can open your browser at [localhost:5000](http://
 ```bash
 npm run build
 ```
-After the task was executed (without errors) you'll find your code in 'public/'
+After the task was executed (without errors) you'll find your code in 'public/build'. Note that deleting 'public' will break the code, so don't do this.
+
+## Additional
+
+Icons used in this projects were create with [Fontello](http://fontello.com/).
 
 ## Resources
 
