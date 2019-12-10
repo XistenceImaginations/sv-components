@@ -4154,28 +4154,38 @@ var app = (function () {
     const file$p = "src\\component\\SideBar.svelte";
 
     function create_fragment$p(ctx) {
-    	let div;
+    	let div2;
+    	let div0;
+    	let div1;
     	let current;
     	const default_slot_template = ctx.$$slots.default;
     	const default_slot = create_slot(default_slot_template, ctx, null);
 
     	const block = {
     		c: function create() {
-    			div = element("div");
+    			div2 = element("div");
+    			div0 = element("div");
     			if (default_slot) default_slot.c();
-    			attr_dev(div, "class", "svSideBar");
-    			add_location(div, file$p, 0, 0, 0);
+    			div1 = element("div");
+    			attr_dev(div0, "class", "svSideBar__content");
+    			add_location(div0, file$p, 0, 23, 23);
+    			attr_dev(div1, "class", "svSideBar__fade");
+    			add_location(div1, file$p, 0, 74, 74);
+    			attr_dev(div2, "class", "svSideBar");
+    			add_location(div2, file$p, 0, 0, 0);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
 
     			if (default_slot) {
-    				default_slot.m(div, null);
+    				default_slot.m(div0, null);
     			}
 
+    			append_dev(div2, div1);
     			current = true;
     		},
     		p: function update(changed, ctx) {
@@ -4193,7 +4203,7 @@ var app = (function () {
     			current = false;
     		},
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div2);
     			if (default_slot) default_slot.d(detaching);
     		}
     	};
@@ -6453,13 +6463,13 @@ var app = (function () {
     			img = element("img");
     			span1 = element("span");
     			span1.textContent = "Svelte Components Test Page";
-    			if (img.src !== (img_src_value = "/assets/icons/app-icon.jpg")) attr_dev(img, "src", img_src_value);
+    			if (img.src !== (img_src_value = "assets/icons/app-icon.jpg")) attr_dev(img, "src", img_src_value);
     			set_style(img, "width", "1.5em");
     			set_style(img, "height", "1.5em");
     			set_style(img, "vertical-align", "text-bottom");
     			set_style(img, "margin-right", ".5em");
     			add_location(img, file$v, 0, 2161, 2161);
-    			add_location(span1, file$v, 0, 2303, 2303);
+    			add_location(span1, file$v, 0, 2302, 2302);
     			attr_dev(span0, "slot", "title");
     			add_location(span0, file$v, 0, 2142, 2142);
     			dispose = listen_dev(img, "click", sidebar.show, false, false, false);
@@ -6487,7 +6497,7 @@ var app = (function () {
     	return block;
     }
 
-    // (1:2368) <IconBar>
+    // (1:2367) <IconBar>
     function create_default_slot_207(ctx) {
     	let current;
 
@@ -6569,14 +6579,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_207.name,
     		type: "slot",
-    		source: "(1:2368) <IconBar>",
+    		source: "(1:2367) <IconBar>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (1:2350) <div slot="icons">
+    // (1:2349) <div slot="icons">
     function create_icons_slot(ctx) {
     	let div;
     	let current;
@@ -6594,7 +6604,7 @@ var app = (function () {
     			div = element("div");
     			create_component(iconbar.$$.fragment);
     			attr_dev(div, "slot", "icons");
-    			add_location(div, file$v, 0, 2350, 2350);
+    			add_location(div, file$v, 0, 2349, 2349);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -6629,7 +6639,7 @@ var app = (function () {
     		block,
     		id: create_icons_slot.name,
     		type: "slot",
-    		source: "(1:2350) <div slot=\\\"icons\\\">",
+    		source: "(1:2349) <div slot=\\\"icons\\\">",
     		ctx
     	});
 
@@ -6734,7 +6744,7 @@ var app = (function () {
     	return block;
     }
 
-    // (1:2811) <Title size="1">
+    // (1:2810) <Title size="1">
     function create_default_slot_204(ctx) {
     	let t;
 
@@ -6754,14 +6764,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_204.name,
     		type: "slot",
-    		source: "(1:2811) <Title size=\\\"1\\\">",
+    		source: "(1:2810) <Title size=\\\"1\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (1:2850) <Section>
+    // (1:2849) <Section>
     function create_default_slot_203(ctx) {
     	let t0;
     	let br0;
@@ -6793,7 +6803,10 @@ var app = (function () {
     	let li3;
     	let li4;
     	let li5;
-    	let span;
+    	let t23;
+    	let br6;
+    	let br7;
+    	let t24;
 
     	const block = {
     		c: function create() {
@@ -6838,34 +6851,37 @@ var app = (function () {
     			li4.textContent = "Not everything is (well)documented (here and/or in code)";
     			li5 = element("li");
     			li5.textContent = "Not ment for production... really";
-    			span = element("span");
-    			span.textContent = "So, let's go...";
-    			add_location(br0, file$v, 0, 2947, 2947);
+    			t23 = text("So, let's go...");
+    			br6 = element("br");
+    			br7 = element("br");
+    			t24 = text("\nP.S.: try to click the logo/icon above that will toggle a sidemenu!");
+    			add_location(br0, file$v, 0, 2946, 2946);
     			set_style(b0, "color", "rgb(0,127,0)");
-    			add_location(b0, file$v, 1, 41, 2993);
+    			add_location(b0, file$v, 1, 41, 2992);
     			set_style(b1, "color", "rgb(127,0,0)");
     			set_style(b1, "text-decoration", "line-through");
-    			add_location(b1, file$v, 2, 44, 3086);
-    			add_location(br1, file$v, 3, 75, 3222);
+    			add_location(b1, file$v, 2, 44, 3085);
+    			add_location(br1, file$v, 3, 75, 3221);
     			set_style(b2, "color", "rgb(0,127,0)");
-    			add_location(b2, file$v, 4, 31, 3258);
-    			add_location(br2, file$v, 4, 128, 3355);
+    			add_location(b2, file$v, 4, 31, 3257);
+    			add_location(br2, file$v, 4, 128, 3354);
     			set_style(b3, "color", "rgb(127,0,0)");
     			set_style(b3, "text-decoration", "line-through");
-    			add_location(b3, file$v, 5, 27, 3387);
-    			add_location(br3, file$v, 5, 187, 3547);
+    			add_location(b3, file$v, 5, 27, 3386);
+    			add_location(br3, file$v, 5, 187, 3546);
     			attr_dev(b4, "class", "--hatched");
-    			add_location(b4, file$v, 6, 25, 3577);
-    			add_location(br4, file$v, 6, 98, 3650);
-    			add_location(br5, file$v, 7, 0, 3655);
-    			add_location(li0, file$v, 8, 90, 3750);
-    			add_location(li1, file$v, 8, 115, 3775);
-    			add_location(li2, file$v, 8, 204, 3864);
-    			add_location(li3, file$v, 8, 310, 3970);
-    			add_location(li4, file$v, 8, 353, 4013);
-    			add_location(li5, file$v, 8, 418, 4078);
-    			add_location(ul, file$v, 8, 86, 3746);
-    			add_location(span, file$v, 8, 465, 4125);
+    			add_location(b4, file$v, 6, 25, 3576);
+    			add_location(br4, file$v, 6, 98, 3649);
+    			add_location(br5, file$v, 7, 0, 3654);
+    			add_location(li0, file$v, 8, 90, 3749);
+    			add_location(li1, file$v, 8, 115, 3774);
+    			add_location(li2, file$v, 8, 204, 3863);
+    			add_location(li3, file$v, 8, 310, 3969);
+    			add_location(li4, file$v, 8, 353, 4012);
+    			add_location(li5, file$v, 8, 418, 4077);
+    			add_location(ul, file$v, 8, 86, 3745);
+    			add_location(br6, file$v, 8, 480, 4139);
+    			add_location(br7, file$v, 8, 484, 4143);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -6898,7 +6914,10 @@ var app = (function () {
     			append_dev(ul, li3);
     			append_dev(ul, li4);
     			append_dev(ul, li5);
-    			insert_dev(target, span, anchor);
+    			insert_dev(target, t23, anchor);
+    			insert_dev(target, br6, anchor);
+    			insert_dev(target, br7, anchor);
+    			insert_dev(target, t24, anchor);
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(t0);
@@ -6925,7 +6944,10 @@ var app = (function () {
     			if (detaching) detach_dev(br5);
     			if (detaching) detach_dev(t16);
     			if (detaching) detach_dev(ul);
-    			if (detaching) detach_dev(span);
+    			if (detaching) detach_dev(t23);
+    			if (detaching) detach_dev(br6);
+    			if (detaching) detach_dev(br7);
+    			if (detaching) detach_dev(t24);
     		}
     	};
 
@@ -6933,14 +6955,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_203.name,
     		type: "slot",
-    		source: "(1:2850) <Section>",
+    		source: "(1:2849) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (9:503) <Title size="2">
+    // (10:77) <Title size="2">
     function create_default_slot_202(ctx) {
     	let t;
 
@@ -6960,14 +6982,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_202.name,
     		type: "slot",
-    		source: "(9:503) <Title size=\\\"2\\\">",
+    		source: "(10:77) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (9:603) <Code>
+    // (10:177) <Code>
     function create_default_slot_201(ctx) {
     	let t;
 
@@ -6987,14 +7009,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_201.name,
     		type: "slot",
-    		source: "(9:603) <Code>",
+    		source: "(10:177) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (9:576) <TextBlock title="Syntax:">
+    // (10:150) <TextBlock title="Syntax:">
     function create_default_slot_200(ctx) {
     	let current;
 
@@ -7041,14 +7063,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_200.name,
     		type: "slot",
-    		source: "(9:576) <TextBlock title=\\\"Syntax:\\\">",
+    		source: "(10:150) <TextBlock title=\\\"Syntax:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (9:686) <Code>
+    // (10:260) <Code>
     function create_default_slot_199(ctx) {
     	let t0;
     	let br;
@@ -7066,7 +7088,7 @@ var app = (function () {
     			create_component(hint.$$.fragment);
     			br = element("br");
     			t1 = space();
-    			add_location(br, file$v, 9, 71, 4424);
+    			add_location(br, file$v, 10, 71, 4486);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -7097,14 +7119,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_199.name,
     		type: "slot",
-    		source: "(9:686) <Code>",
+    		source: "(10:260) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (9:655) <TextBlock title="Parameters:">
+    // (10:229) <TextBlock title="Parameters:">
     function create_default_slot_198(ctx) {
     	let current;
 
@@ -7151,14 +7173,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_198.name,
     		type: "slot",
-    		source: "(9:655) <TextBlock title=\\\"Parameters:\\\">",
+    		source: "(10:229) <TextBlock title=\\\"Parameters:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:48) <Title size="1">
+    // (12:48) <Title size="1">
     function create_default_slot_197(ctx) {
     	let t;
 
@@ -7178,14 +7200,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_197.name,
     		type: "slot",
-    		source: "(11:48) <Title size=\\\"1\\\">",
+    		source: "(12:48) <Title size=\\\"1\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:84) <Title size="2">
+    // (12:84) <Title size="2">
     function create_default_slot_196(ctx) {
     	let t;
 
@@ -7205,14 +7227,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_196.name,
     		type: "slot",
-    		source: "(11:84) <Title size=\\\"2\\\">",
+    		source: "(12:84) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:120) <Title size="3">
+    // (12:120) <Title size="3">
     function create_default_slot_195(ctx) {
     	let t;
 
@@ -7232,14 +7254,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_195.name,
     		type: "slot",
-    		source: "(11:120) <Title size=\\\"3\\\">",
+    		source: "(12:120) <Title size=\\\"3\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:156) <Title size="4">
+    // (12:156) <Title size="4">
     function create_default_slot_194(ctx) {
     	let t;
 
@@ -7259,14 +7281,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_194.name,
     		type: "slot",
-    		source: "(11:156) <Title size=\\\"4\\\">",
+    		source: "(12:156) <Title size=\\\"4\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:192) <Title size="5">
+    // (12:192) <Title size="5">
     function create_default_slot_193(ctx) {
     	let t;
 
@@ -7286,14 +7308,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_193.name,
     		type: "slot",
-    		source: "(11:192) <Title size=\\\"5\\\">",
+    		source: "(12:192) <Title size=\\\"5\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:228) <Title size="6">
+    // (12:228) <Title size="6">
     function create_default_slot_192(ctx) {
     	let t;
 
@@ -7313,14 +7335,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_192.name,
     		type: "slot",
-    		source: "(11:228) <Title size=\\\"6\\\">",
+    		source: "(12:228) <Title size=\\\"6\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:19) <TextBlock title="Examples:">
+    // (12:19) <TextBlock title="Examples:">
     function create_default_slot_191(ctx) {
     	let current;
 
@@ -7473,14 +7495,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_191.name,
     		type: "slot",
-    		source: "(11:19) <TextBlock title=\\\"Examples:\\\">",
+    		source: "(12:19) <TextBlock title=\\\"Examples:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (9:542) <Description title="About titles">
+    // (10:116) <Description title="About titles">
     function create_default_slot_190(ctx) {
     	let current;
 
@@ -7570,14 +7592,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_190.name,
     		type: "slot",
-    		source: "(9:542) <Description title=\\\"About titles\\\">",
+    		source: "(10:116) <Description title=\\\"About titles\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (9:533) <Section>
+    // (10:107) <Section>
     function create_default_slot_189(ctx) {
     	let current;
 
@@ -7625,14 +7647,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_189.name,
     		type: "slot",
-    		source: "(9:533) <Section>",
+    		source: "(10:107) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:300) <Title size="2">
+    // (12:300) <Title size="2">
     function create_default_slot_188(ctx) {
     	let t;
 
@@ -7652,14 +7674,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_188.name,
     		type: "slot",
-    		source: "(11:300) <Title size=\\\"2\\\">",
+    		source: "(12:300) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:403) <Code>
+    // (12:403) <Code>
     function create_default_slot_187(ctx) {
     	let t;
 
@@ -7679,14 +7701,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_187.name,
     		type: "slot",
-    		source: "(11:403) <Code>",
+    		source: "(12:403) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:376) <TextBlock title="Syntax:">
+    // (12:376) <TextBlock title="Syntax:">
     function create_default_slot_186(ctx) {
     	let current;
 
@@ -7733,14 +7755,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_186.name,
     		type: "slot",
-    		source: "(11:376) <TextBlock title=\\\"Syntax:\\\">",
+    		source: "(12:376) <TextBlock title=\\\"Syntax:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:501) <Code>
+    // (12:501) <Code>
     function create_default_slot_185(ctx) {
     	let t0;
     	let br0;
@@ -7768,8 +7790,8 @@ var app = (function () {
     			create_component(hint1.$$.fragment);
     			br1 = element("br");
     			t2 = space();
-    			add_location(br0, file$v, 11, 56, 4993);
-    			add_location(br1, file$v, 12, 90, 5088);
+    			add_location(br0, file$v, 12, 56, 5055);
+    			add_location(br1, file$v, 13, 90, 5150);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -7808,14 +7830,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_185.name,
     		type: "slot",
-    		source: "(11:501) <Code>",
+    		source: "(12:501) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:470) <TextBlock title="Parameters:">
+    // (12:470) <TextBlock title="Parameters:">
     function create_default_slot_184(ctx) {
     	let current;
 
@@ -7862,14 +7884,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_184.name,
     		type: "slot",
-    		source: "(11:470) <TextBlock title=\\\"Parameters:\\\">",
+    		source: "(12:470) <TextBlock title=\\\"Parameters:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:63) <Button type="default">
+    // (15:63) <Button type="default">
     function create_default_slot_183(ctx) {
     	let t;
 
@@ -7889,14 +7911,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_183.name,
     		type: "slot",
-    		source: "(14:63) <Button type=\\\"default\\\">",
+    		source: "(15:63) <Button type=\\\"default\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:102) <Button type="default pulse">
+    // (15:102) <Button type="default pulse">
     function create_default_slot_182(ctx) {
     	let t;
 
@@ -7916,14 +7938,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_182.name,
     		type: "slot",
-    		source: "(14:102) <Button type=\\\"default pulse\\\">",
+    		source: "(15:102) <Button type=\\\"default pulse\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:165) <Button icon="picture" type="default">
+    // (15:165) <Button icon="picture" type="default">
     function create_default_slot_181(ctx) {
     	let t;
 
@@ -7943,14 +7965,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_181.name,
     		type: "slot",
-    		source: "(14:165) <Button icon=\\\"picture\\\" type=\\\"default\\\">",
+    		source: "(15:165) <Button icon=\\\"picture\\\" type=\\\"default\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:19) <TextBlock title="Examples, default style:">
+    // (15:19) <TextBlock title="Examples, default style:">
     function create_default_slot_180(ctx) {
     	let current;
 
@@ -8041,14 +8063,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_180.name,
     		type: "slot",
-    		source: "(14:19) <TextBlock title=\\\"Examples, default style:\\\">",
+    		source: "(15:19) <TextBlock title=\\\"Examples, default style:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:285) <Button type="primary">
+    // (15:285) <Button type="primary">
     function create_default_slot_179(ctx) {
     	let t;
 
@@ -8068,14 +8090,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_179.name,
     		type: "slot",
-    		source: "(14:285) <Button type=\\\"primary\\\">",
+    		source: "(15:285) <Button type=\\\"primary\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:324) <Button type="primary pulse">
+    // (15:324) <Button type="primary pulse">
     function create_default_slot_178(ctx) {
     	let t;
 
@@ -8095,14 +8117,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_178.name,
     		type: "slot",
-    		source: "(14:324) <Button type=\\\"primary pulse\\\">",
+    		source: "(15:324) <Button type=\\\"primary pulse\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:387) <Button icon="picture" type="primary">
+    // (15:387) <Button icon="picture" type="primary">
     function create_default_slot_177(ctx) {
     	let t;
 
@@ -8122,14 +8144,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_177.name,
     		type: "slot",
-    		source: "(14:387) <Button icon=\\\"picture\\\" type=\\\"primary\\\">",
+    		source: "(15:387) <Button icon=\\\"picture\\\" type=\\\"primary\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:241) <TextBlock title="Examples, primary style:">
+    // (15:241) <TextBlock title="Examples, primary style:">
     function create_default_slot_176(ctx) {
     	let current;
 
@@ -8220,14 +8242,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_176.name,
     		type: "slot",
-    		source: "(14:241) <TextBlock title=\\\"Examples, primary style:\\\">",
+    		source: "(15:241) <TextBlock title=\\\"Examples, primary style:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:509) <Button type="secondary">
+    // (15:509) <Button type="secondary">
     function create_default_slot_175(ctx) {
     	let t;
 
@@ -8247,14 +8269,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_175.name,
     		type: "slot",
-    		source: "(14:509) <Button type=\\\"secondary\\\">",
+    		source: "(15:509) <Button type=\\\"secondary\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:552) <Button type="secondary pulse">
+    // (15:552) <Button type="secondary pulse">
     function create_default_slot_174(ctx) {
     	let t;
 
@@ -8274,14 +8296,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_174.name,
     		type: "slot",
-    		source: "(14:552) <Button type=\\\"secondary pulse\\\">",
+    		source: "(15:552) <Button type=\\\"secondary pulse\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:619) <Button icon="picture" type="secondary">
+    // (15:619) <Button icon="picture" type="secondary">
     function create_default_slot_173(ctx) {
     	let t;
 
@@ -8301,14 +8323,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_173.name,
     		type: "slot",
-    		source: "(14:619) <Button icon=\\\"picture\\\" type=\\\"secondary\\\">",
+    		source: "(15:619) <Button icon=\\\"picture\\\" type=\\\"secondary\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:463) <TextBlock title="Examples, secondary style:">
+    // (15:463) <TextBlock title="Examples, secondary style:">
     function create_default_slot_172(ctx) {
     	let current;
 
@@ -8399,14 +8421,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_172.name,
     		type: "slot",
-    		source: "(14:463) <TextBlock title=\\\"Examples, secondary style:\\\">",
+    		source: "(15:463) <TextBlock title=\\\"Examples, secondary style:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:744) <Button type="disabled">
+    // (15:744) <Button type="disabled">
     function create_default_slot_171(ctx) {
     	let t;
 
@@ -8426,14 +8448,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_171.name,
     		type: "slot",
-    		source: "(14:744) <Button type=\\\"disabled\\\">",
+    		source: "(15:744) <Button type=\\\"disabled\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:785) <Button type="disabled pulse">
+    // (15:785) <Button type="disabled pulse">
     function create_default_slot_170(ctx) {
     	let t;
 
@@ -8453,14 +8475,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_170.name,
     		type: "slot",
-    		source: "(14:785) <Button type=\\\"disabled pulse\\\">",
+    		source: "(15:785) <Button type=\\\"disabled pulse\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:850) <Button icon="picture" type="disabled">
+    // (15:850) <Button icon="picture" type="disabled">
     function create_default_slot_169(ctx) {
     	let t;
 
@@ -8480,14 +8502,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_169.name,
     		type: "slot",
-    		source: "(14:850) <Button icon=\\\"picture\\\" type=\\\"disabled\\\">",
+    		source: "(15:850) <Button icon=\\\"picture\\\" type=\\\"disabled\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:699) <TextBlock title="Examples, disabled style:">
+    // (15:699) <TextBlock title="Examples, disabled style:">
     function create_default_slot_168(ctx) {
     	let current;
 
@@ -8578,14 +8600,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_168.name,
     		type: "slot",
-    		source: "(14:699) <TextBlock title=\\\"Examples, disabled style:\\\">",
+    		source: "(15:699) <TextBlock title=\\\"Examples, disabled style:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:340) <Description title="Single buttons">
+    // (12:340) <Description title="Single buttons">
     function create_default_slot_167(ctx) {
     	let current;
 
@@ -8738,14 +8760,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_167.name,
     		type: "slot",
-    		source: "(11:340) <Description title=\\\"Single buttons\\\">",
+    		source: "(12:340) <Description title=\\\"Single buttons\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:1078) <Button type="default">
+    // (15:1078) <Button type="default">
     function create_default_slot_166(ctx) {
     	let t;
 
@@ -8765,14 +8787,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_166.name,
     		type: "slot",
-    		source: "(14:1078) <Button type=\\\"default\\\">",
+    		source: "(15:1078) <Button type=\\\"default\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:1053) {#each Array(10) as _, i}
+    // (15:1053) {#each Array(10) as _, i}
     function create_each_block_1(ctx) {
     	let current;
 
@@ -8820,14 +8842,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(14:1053) {#each Array(10) as _, i}",
+    		source: "(15:1053) {#each Array(10) as _, i}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:1040) <ButtonGroup>
+    // (15:1040) <ButtonGroup>
     function create_default_slot_165(ctx) {
     	let each_1_anchor;
     	let current;
@@ -8914,14 +8936,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_165.name,
     		type: "slot",
-    		source: "(14:1040) <ButtonGroup>",
+    		source: "(15:1040) <ButtonGroup>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:1011) <TextBlock title="Examples:">
+    // (15:1011) <TextBlock title="Examples:">
     function create_default_slot_164(ctx) {
     	let current;
 
@@ -8968,14 +8990,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_164.name,
     		type: "slot",
-    		source: "(14:1011) <TextBlock title=\\\"Examples:\\\">",
+    		source: "(15:1011) <TextBlock title=\\\"Examples:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:942) <Description title="Buttons in a group panel">
+    // (15:942) <Description title="Buttons in a group panel">
     function create_default_slot_163(ctx) {
     	let div;
     	let current;
@@ -8994,7 +9016,7 @@ var app = (function () {
     			div = element("div");
     			create_component(textblock.$$.fragment);
     			attr_dev(div, "class", "--hatched");
-    			add_location(div, file$v, 13, 988, 6081);
+    			add_location(div, file$v, 14, 988, 6143);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -9029,14 +9051,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_163.name,
     		type: "slot",
-    		source: "(14:942) <Description title=\\\"Buttons in a group panel\\\">",
+    		source: "(15:942) <Description title=\\\"Buttons in a group panel\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (11:331) <Section>
+    // (12:331) <Section>
     function create_default_slot_162(ctx) {
     	let current;
 
@@ -9105,14 +9127,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_162.name,
     		type: "slot",
-    		source: "(11:331) <Section>",
+    		source: "(12:331) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:1180) <Title size="2">
+    // (15:1180) <Title size="2">
     function create_default_slot_161(ctx) {
     	let t;
 
@@ -9132,14 +9154,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_161.name,
     		type: "slot",
-    		source: "(14:1180) <Title size=\\\"2\\\">",
+    		source: "(15:1180) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:1288) <Code>
+    // (15:1288) <Code>
     function create_default_slot_160(ctx) {
     	let t;
 
@@ -9159,14 +9181,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_160.name,
     		type: "slot",
-    		source: "(14:1288) <Code>",
+    		source: "(15:1288) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:1261) <TextBlock title="Syntax:">
+    // (15:1261) <TextBlock title="Syntax:">
     function create_default_slot_159(ctx) {
     	let current;
 
@@ -9213,14 +9235,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_159.name,
     		type: "slot",
-    		source: "(14:1261) <TextBlock title=\\\"Syntax:\\\">",
+    		source: "(15:1261) <TextBlock title=\\\"Syntax:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:1377) <Code>
+    // (15:1377) <Code>
     function create_default_slot_158(ctx) {
     	let t0;
     	let br0;
@@ -9252,8 +9274,8 @@ var app = (function () {
     			create_component(hint1.$$.fragment);
     			br1 = element("br");
     			t2 = space();
-    			add_location(br0, file$v, 14, 146, 6623);
-    			add_location(br1, file$v, 15, 145, 6773);
+    			add_location(br0, file$v, 15, 146, 6685);
+    			add_location(br1, file$v, 16, 145, 6835);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -9292,14 +9314,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_158.name,
     		type: "slot",
-    		source: "(14:1377) <Code>",
+    		source: "(15:1377) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:1346) <TextBlock title="Parameters:">
+    // (15:1346) <TextBlock title="Parameters:">
     function create_default_slot_157(ctx) {
     	let current;
 
@@ -9346,14 +9368,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_157.name,
     		type: "slot",
-    		source: "(14:1346) <TextBlock title=\\\"Parameters:\\\">",
+    		source: "(15:1346) <TextBlock title=\\\"Parameters:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:48) <CheckBox>
+    // (18:48) <CheckBox>
     function create_default_slot_156(ctx) {
     	let t;
 
@@ -9373,14 +9395,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_156.name,
     		type: "slot",
-    		source: "(17:48) <CheckBox>",
+    		source: "(18:48) <CheckBox>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:86) <CheckBox checked>
+    // (18:86) <CheckBox checked>
     function create_default_slot_155(ctx) {
     	let t;
 
@@ -9400,14 +9422,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_155.name,
     		type: "slot",
-    		source: "(17:86) <CheckBox checked>",
+    		source: "(18:86) <CheckBox checked>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:134) <CheckBox disabled>
+    // (18:134) <CheckBox disabled>
     function create_default_slot_154(ctx) {
     	let t;
 
@@ -9427,14 +9449,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_154.name,
     		type: "slot",
-    		source: "(17:134) <CheckBox disabled>",
+    		source: "(18:134) <CheckBox disabled>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:182) <CheckBox disabled checked>
+    // (18:182) <CheckBox disabled checked>
     function create_default_slot_153(ctx) {
     	let t;
 
@@ -9454,14 +9476,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_153.name,
     		type: "slot",
-    		source: "(17:182) <CheckBox disabled checked>",
+    		source: "(18:182) <CheckBox disabled checked>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:19) <TextBlock title="Examples:">
+    // (18:19) <TextBlock title="Examples:">
     function create_default_slot_152(ctx) {
     	let br;
     	let current;
@@ -9509,7 +9531,7 @@ var app = (function () {
     			br = element("br");
     			create_component(checkbox2.$$.fragment);
     			create_component(checkbox3.$$.fragment);
-    			add_location(br, file$v, 16, 130, 6908);
+    			add_location(br, file$v, 17, 130, 6970);
     		},
     		m: function mount(target, anchor) {
     			mount_component(checkbox0, target, anchor);
@@ -9577,14 +9599,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_152.name,
     		type: "slot",
-    		source: "(17:19) <TextBlock title=\\\"Examples:\\\">",
+    		source: "(18:19) <TextBlock title=\\\"Examples:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:1223) <Description title="About checkboxes">
+    // (15:1223) <Description title="About checkboxes">
     function create_default_slot_151(ctx) {
     	let current;
 
@@ -9674,14 +9696,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_151.name,
     		type: "slot",
-    		source: "(14:1223) <Description title=\\\"About checkboxes\\\">",
+    		source: "(15:1223) <Description title=\\\"About checkboxes\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (14:1214) <Section>
+    // (15:1214) <Section>
     function create_default_slot_150(ctx) {
     	let current;
 
@@ -9729,14 +9751,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_150.name,
     		type: "slot",
-    		source: "(14:1214) <Section>",
+    		source: "(15:1214) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:272) <Title size="2">
+    // (18:272) <Title size="2">
     function create_default_slot_149(ctx) {
     	let t;
 
@@ -9756,14 +9778,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_149.name,
     		type: "slot",
-    		source: "(17:272) <Title size=\\\"2\\\">",
+    		source: "(18:272) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:359) <TextBlock>
+    // (18:359) <TextBlock>
     function create_default_slot_148(ctx) {
     	let t0;
     	let br;
@@ -9777,9 +9799,9 @@ var app = (function () {
     			t1 = space();
     			b = element("b");
     			b.textContent = "TODO Rename CheckBox to Toggle";
-    			add_location(br, file$v, 16, 447, 7225);
+    			add_location(br, file$v, 17, 447, 7287);
     			set_style(b, "color", "red");
-    			add_location(b, file$v, 17, 0, 7230);
+    			add_location(b, file$v, 18, 0, 7292);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -9799,14 +9821,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_148.name,
     		type: "slot",
-    		source: "(17:359) <TextBlock>",
+    		source: "(18:359) <TextBlock>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (18:95) <Code>
+    // (19:95) <Code>
     function create_default_slot_147(ctx) {
     	let t;
 
@@ -9826,14 +9848,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_147.name,
     		type: "slot",
-    		source: "(18:95) <Code>",
+    		source: "(19:95) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (18:68) <TextBlock title="Syntax:">
+    // (19:68) <TextBlock title="Syntax:">
     function create_default_slot_146(ctx) {
     	let current;
 
@@ -9880,14 +9902,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_146.name,
     		type: "slot",
-    		source: "(18:68) <TextBlock title=\\\"Syntax:\\\">",
+    		source: "(19:68) <TextBlock title=\\\"Syntax:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (18:194) <Code>
+    // (19:194) <Code>
     function create_default_slot_145(ctx) {
     	let t0;
     	let br0;
@@ -9933,10 +9955,10 @@ var app = (function () {
     			create_component(hint2.$$.fragment);
     			br3 = element("br");
     			t4 = space();
-    			add_location(br0, file$v, 18, 12, 7443);
-    			add_location(br1, file$v, 19, 58, 7506);
-    			add_location(br2, file$v, 20, 146, 7657);
-    			add_location(br3, file$v, 21, 145, 7807);
+    			add_location(br0, file$v, 19, 12, 7505);
+    			add_location(br1, file$v, 20, 58, 7568);
+    			add_location(br2, file$v, 21, 146, 7719);
+    			add_location(br3, file$v, 22, 145, 7869);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -9987,14 +10009,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_145.name,
     		type: "slot",
-    		source: "(18:194) <Code>",
+    		source: "(19:194) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (18:163) <TextBlock title="Parameters:">
+    // (19:163) <TextBlock title="Parameters:">
     function create_default_slot_144(ctx) {
     	let current;
 
@@ -10041,14 +10063,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_144.name,
     		type: "slot",
-    		source: "(18:163) <TextBlock title=\\\"Parameters:\\\">",
+    		source: "(19:163) <TextBlock title=\\\"Parameters:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:48) <CheckBox type="radio" name="foo1">
+    // (24:48) <CheckBox type="radio" name="foo1">
     function create_default_slot_143(ctx) {
     	let t;
 
@@ -10068,14 +10090,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_143.name,
     		type: "slot",
-    		source: "(23:48) <CheckBox type=\\\"radio\\\" name=\\\"foo1\\\">",
+    		source: "(24:48) <CheckBox type=\\\"radio\\\" name=\\\"foo1\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:111) <CheckBox type="radio" name="foo1" checked>
+    // (24:111) <CheckBox type="radio" name="foo1" checked>
     function create_default_slot_142(ctx) {
     	let t;
 
@@ -10095,14 +10117,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_142.name,
     		type: "slot",
-    		source: "(23:111) <CheckBox type=\\\"radio\\\" name=\\\"foo1\\\" checked>",
+    		source: "(24:111) <CheckBox type=\\\"radio\\\" name=\\\"foo1\\\" checked>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:184) <CheckBox type="radio" name="foo2" disabled>
+    // (24:184) <CheckBox type="radio" name="foo2" disabled>
     function create_default_slot_141(ctx) {
     	let t;
 
@@ -10122,14 +10144,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_141.name,
     		type: "slot",
-    		source: "(23:184) <CheckBox type=\\\"radio\\\" name=\\\"foo2\\\" disabled>",
+    		source: "(24:184) <CheckBox type=\\\"radio\\\" name=\\\"foo2\\\" disabled>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:257) <CheckBox type="radio" name="foo2" disabled checked>
+    // (24:257) <CheckBox type="radio" name="foo2" disabled checked>
     function create_default_slot_140(ctx) {
     	let t;
 
@@ -10149,14 +10171,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_140.name,
     		type: "slot",
-    		source: "(23:257) <CheckBox type=\\\"radio\\\" name=\\\"foo2\\\" disabled checked>",
+    		source: "(24:257) <CheckBox type=\\\"radio\\\" name=\\\"foo2\\\" disabled checked>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:19) <TextBlock title="Examples:">
+    // (24:19) <TextBlock title="Examples:">
     function create_default_slot_139(ctx) {
     	let br;
     	let current;
@@ -10212,7 +10234,7 @@ var app = (function () {
     			br = element("br");
     			create_component(checkbox2.$$.fragment);
     			create_component(checkbox3.$$.fragment);
-    			add_location(br, file$v, 22, 180, 7992);
+    			add_location(br, file$v, 23, 180, 8054);
     		},
     		m: function mount(target, anchor) {
     			mount_component(checkbox0, target, anchor);
@@ -10280,14 +10302,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_139.name,
     		type: "slot",
-    		source: "(23:19) <TextBlock title=\\\"Examples:\\\">",
+    		source: "(24:19) <TextBlock title=\\\"Examples:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:318) <Description title="About radio buttons">
+    // (18:318) <Description title="About radio buttons">
     function create_default_slot_138(ctx) {
     	let current;
 
@@ -10397,14 +10419,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_138.name,
     		type: "slot",
-    		source: "(17:318) <Description title=\\\"About radio buttons\\\">",
+    		source: "(18:318) <Description title=\\\"About radio buttons\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (17:309) <Section>
+    // (18:309) <Section>
     function create_default_slot_137(ctx) {
     	let current;
 
@@ -10452,14 +10474,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_137.name,
     		type: "slot",
-    		source: "(17:309) <Section>",
+    		source: "(18:309) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:372) <Title size="2">
+    // (24:372) <Title size="2">
     function create_default_slot_136(ctx) {
     	let t;
 
@@ -10479,14 +10501,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_136.name,
     		type: "slot",
-    		source: "(23:372) <Title size=\\\"2\\\">",
+    		source: "(24:372) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:484) <Code>
+    // (24:484) <Code>
     function create_default_slot_135(ctx) {
     	let t;
 
@@ -10506,14 +10528,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_135.name,
     		type: "slot",
-    		source: "(23:484) <Code>",
+    		source: "(24:484) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:457) <TextBlock title="Syntax:">
+    // (24:457) <TextBlock title="Syntax:">
     function create_default_slot_134(ctx) {
     	let current;
 
@@ -10560,14 +10582,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_134.name,
     		type: "slot",
-    		source: "(23:457) <TextBlock title=\\\"Syntax:\\\">",
+    		source: "(24:457) <TextBlock title=\\\"Syntax:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:613) <Code>
+    // (24:613) <Code>
     function create_default_slot_133(ctx) {
     	let t0;
     	let br0;
@@ -10617,10 +10639,10 @@ var app = (function () {
     			create_component(hint3.$$.fragment);
     			br3 = element("br");
     			t4 = space();
-    			add_location(br0, file$v, 23, 65, 8497);
-    			add_location(br1, file$v, 24, 59, 8561);
-    			add_location(br2, file$v, 25, 65, 8631);
-    			add_location(br3, file$v, 26, 146, 8782);
+    			add_location(br0, file$v, 24, 65, 8559);
+    			add_location(br1, file$v, 25, 59, 8623);
+    			add_location(br2, file$v, 26, 65, 8693);
+    			add_location(br3, file$v, 27, 146, 8844);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -10675,14 +10697,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_133.name,
     		type: "slot",
-    		source: "(23:613) <Code>",
+    		source: "(24:613) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:582) <TextBlock title="Parameters:">
+    // (24:582) <TextBlock title="Parameters:">
     function create_default_slot_132(ctx) {
     	let current;
 
@@ -10729,14 +10751,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_132.name,
     		type: "slot",
-    		source: "(23:582) <TextBlock title=\\\"Parameters:\\\">",
+    		source: "(24:582) <TextBlock title=\\\"Parameters:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:19) <TextBlock title="Examples standard:">
+    // (29:19) <TextBlock title="Examples standard:">
     function create_default_slot_131(ctx) {
     	let current;
     	const field0 = new Field({ $$inline: true });
@@ -10801,14 +10823,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_131.name,
     		type: "slot",
-    		source: "(28:19) <TextBlock title=\\\"Examples standard:\\\">",
+    		source: "(29:19) <TextBlock title=\\\"Examples standard:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:225) <TextBlock title="Examples standard, disabled:">
+    // (29:225) <TextBlock title="Examples standard, disabled:">
     function create_default_slot_130(ctx) {
     	let current;
 
@@ -10881,14 +10903,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_130.name,
     		type: "slot",
-    		source: "(28:225) <TextBlock title=\\\"Examples standard, disabled:\\\">",
+    		source: "(29:225) <TextBlock title=\\\"Examples standard, disabled:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:477) <TextBlock title="Password type:">
+    // (29:477) <TextBlock title="Password type:">
     function create_default_slot_129(ctx) {
     	let current;
 
@@ -10961,14 +10983,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_129.name,
     		type: "slot",
-    		source: "(28:477) <TextBlock title=\\\"Password type:\\\">",
+    		source: "(29:477) <TextBlock title=\\\"Password type:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:743) <TextBlock title="Password type, disabled:">
+    // (29:743) <TextBlock title="Password type, disabled:">
     function create_default_slot_128(ctx) {
     	let current;
 
@@ -11047,14 +11069,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_128.name,
     		type: "slot",
-    		source: "(28:743) <TextBlock title=\\\"Password type, disabled:\\\">",
+    		source: "(29:743) <TextBlock title=\\\"Password type, disabled:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:417) <Description title="About input fields">
+    // (24:417) <Description title="About input fields">
     function create_default_slot_127(ctx) {
     	let current;
 
@@ -11207,14 +11229,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_127.name,
     		type: "slot",
-    		source: "(23:417) <Description title=\\\"About input fields\\\">",
+    		source: "(24:417) <Description title=\\\"About input fields\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (23:408) <Section>
+    // (24:408) <Section>
     function create_default_slot_126(ctx) {
     	let current;
 
@@ -11262,14 +11284,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_126.name,
     		type: "slot",
-    		source: "(23:408) <Section>",
+    		source: "(24:408) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:1079) <Title size="2">
+    // (29:1079) <Title size="2">
     function create_default_slot_125(ctx) {
     	let t;
 
@@ -11289,14 +11311,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_125.name,
     		type: "slot",
-    		source: "(28:1079) <Title size=\\\"2\\\">",
+    		source: "(29:1079) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (29:19) <Code>
+    // (30:19) <Code>
     function create_default_slot_124(ctx) {
     	let t;
 
@@ -11316,14 +11338,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_124.name,
     		type: "slot",
-    		source: "(29:19) <Code>",
+    		source: "(30:19) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:1154) <TextBlock>
+    // (29:1154) <TextBlock>
     function create_default_slot_123(ctx) {
     	let t0;
     	let b;
@@ -11347,7 +11369,7 @@ var app = (function () {
     			t2 = text("-instance in your page, the rest will happen via the\nglobal JS-function ");
     			create_component(code.$$.fragment);
     			t3 = text(" and data-attributes on the element\ntriggering that function.");
-    			add_location(b, file$v, 27, 1185, 9972);
+    			add_location(b, file$v, 28, 1185, 10034);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -11388,14 +11410,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_123.name,
     		type: "slot",
-    		source: "(28:1154) <TextBlock>",
+    		source: "(29:1154) <TextBlock>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (30:65) <Code>
+    // (31:65) <Code>
     function create_default_slot_122(ctx) {
     	let t;
 
@@ -11415,14 +11437,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_122.name,
     		type: "slot",
-    		source: "(30:65) <Code>",
+    		source: "(31:65) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (30:37) <TextBlock title="Trigger:">
+    // (31:37) <TextBlock title="Trigger:">
     function create_default_slot_121(ctx) {
     	let current;
 
@@ -11469,14 +11491,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_121.name,
     		type: "slot",
-    		source: "(30:37) <TextBlock title=\\\"Trigger:\\\">",
+    		source: "(31:37) <TextBlock title=\\\"Trigger:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (30:219) <Code>
+    // (31:219) <Code>
     function create_default_slot_120(ctx) {
     	let t0;
     	let br0;
@@ -11514,9 +11536,9 @@ var app = (function () {
     			create_component(hint2.$$.fragment);
     			br2 = element("br");
     			t3 = space();
-    			add_location(br0, file$v, 30, 87, 10432);
-    			add_location(br1, file$v, 31, 63, 10500);
-    			add_location(br2, file$v, 32, 63, 10568);
+    			add_location(br0, file$v, 31, 87, 10494);
+    			add_location(br1, file$v, 32, 63, 10562);
+    			add_location(br2, file$v, 33, 63, 10630);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -11563,14 +11585,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_120.name,
     		type: "slot",
-    		source: "(30:219) <Code>",
+    		source: "(31:219) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (30:188) <TextBlock title="Parameters:">
+    // (31:188) <TextBlock title="Parameters:">
     function create_default_slot_119(ctx) {
     	let current;
 
@@ -11617,14 +11639,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_119.name,
     		type: "slot",
-    		source: "(30:188) <TextBlock title=\\\"Parameters:\\\">",
+    		source: "(31:188) <TextBlock title=\\\"Parameters:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (34:19) <TextBlock title="Examples:">
+    // (35:19) <TextBlock title="Examples:">
     function create_default_slot_118(ctx) {
     	let button0;
     	let button1;
@@ -11647,23 +11669,23 @@ var app = (function () {
     			button4.textContent = "Show Confirm Dialog";
     			attr_dev(button0, "data-title", "Some title");
     			attr_dev(button0, "data-text", "Some text");
-    			add_location(button0, file$v, 33, 48, 10621);
+    			add_location(button0, file$v, 34, 48, 10683);
     			attr_dev(button1, "data-type", "success");
     			attr_dev(button1, "data-title", "Success :)");
     			attr_dev(button1, "data-text", "Success Text");
-    			add_location(button1, file$v, 33, 155, 10728);
+    			add_location(button1, file$v, 34, 155, 10790);
     			attr_dev(button2, "data-type", "error");
     			attr_dev(button2, "data-title", "Error :(");
     			attr_dev(button2, "data-text", "Success Text");
-    			add_location(button2, file$v, 33, 285, 10858);
+    			add_location(button2, file$v, 34, 285, 10920);
     			attr_dev(button3, "data-type", "info");
     			attr_dev(button3, "data-title", "Info!");
     			attr_dev(button3, "data-text", "Info Text");
-    			add_location(button3, file$v, 33, 409, 10982);
+    			add_location(button3, file$v, 34, 409, 11044);
     			attr_dev(button4, "data-type", "confirm");
     			attr_dev(button4, "data-title", "Confirm?");
     			attr_dev(button4, "data-text", "Confirm Text");
-    			add_location(button4, file$v, 33, 525, 11098);
+    			add_location(button4, file$v, 34, 525, 11160);
 
     			dispose = [
     				listen_dev(button0, "click", dialog.show, false, false, false),
@@ -11695,14 +11717,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_118.name,
     		type: "slot",
-    		source: "(34:19) <TextBlock title=\\\"Examples:\\\">",
+    		source: "(35:19) <TextBlock title=\\\"Examples:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:1119) <Description title="About dialogs">
+    // (29:1119) <Description title="About dialogs">
     function create_default_slot_117(ctx) {
     	let current;
 
@@ -11812,14 +11834,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_117.name,
     		type: "slot",
-    		source: "(28:1119) <Description title=\\\"About dialogs\\\">",
+    		source: "(29:1119) <Description title=\\\"About dialogs\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (28:1110) <Section>
+    // (29:1110) <Section>
     function create_default_slot_116(ctx) {
     	let current;
 
@@ -11867,14 +11889,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_116.name,
     		type: "slot",
-    		source: "(28:1110) <Section>",
+    		source: "(29:1110) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (34:689) <Title size="2">
+    // (35:689) <Title size="2">
     function create_default_slot_115(ctx) {
     	let t;
 
@@ -11894,14 +11916,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_115.name,
     		type: "slot",
-    		source: "(34:689) <Title size=\\\"2\\\">",
+    		source: "(35:689) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (35:19) <Code>
+    // (36:19) <Code>
     function create_default_slot_114(ctx) {
     	let t;
 
@@ -11921,14 +11943,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_114.name,
     		type: "slot",
-    		source: "(35:19) <Code>",
+    		source: "(36:19) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (34:776) <TextBlock>
+    // (35:776) <TextBlock>
     function create_default_slot_113(ctx) {
     	let t0;
     	let b;
@@ -11952,7 +11974,7 @@ var app = (function () {
     			t2 = text("-instances in your page, the rest will happen via the\nglobal JS-function ");
     			create_component(code.$$.fragment);
     			t3 = text(" and data-attributes on the element\ntriggering that function.");
-    			add_location(b, file$v, 33, 803, 11376);
+    			add_location(b, file$v, 34, 803, 11438);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -11993,14 +12015,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_113.name,
     		type: "slot",
-    		source: "(34:776) <TextBlock>",
+    		source: "(35:776) <TextBlock>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (39:7) <Code>
+    // (40:7) <Code>
     function create_default_slot_112(ctx) {
     	let t;
 
@@ -12020,14 +12042,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_112.name,
     		type: "slot",
-    		source: "(39:7) <Code>",
+    		source: "(40:7) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (36:37) <TextBlock>
+    // (37:37) <TextBlock>
     function create_default_slot_111(ctx) {
     	let t0;
     	let b0;
@@ -12056,8 +12078,8 @@ var app = (function () {
     			t4 = text("\nbox. Ideally you define just one instance of each so that you have a maximum of two in your\ndoc (or just one, if you only need one type). Which notification is triggered is depending\non the ");
     			create_component(code.$$.fragment);
     			t5 = text("-attribute later on.");
-    			add_location(b0, file$v, 35, 92, 11628);
-    			add_location(b1, file$v, 35, 122, 11658);
+    			add_location(b0, file$v, 36, 92, 11690);
+    			add_location(b1, file$v, 36, 122, 11720);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -12102,14 +12124,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_111.name,
     		type: "slot",
-    		source: "(36:37) <TextBlock>",
+    		source: "(37:37) <TextBlock>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (39:69) <TextBlock>
+    // (40:69) <TextBlock>
     function create_default_slot_110(ctx) {
     	let t;
 
@@ -12129,14 +12151,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_110.name,
     		type: "slot",
-    		source: "(39:69) <TextBlock>",
+    		source: "(40:69) <TextBlock>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (41:109) <Code>
+    // (42:109) <Code>
     function create_default_slot_109(ctx) {
     	let t0;
     	let br0;
@@ -12155,9 +12177,9 @@ var app = (function () {
     			t2 = text("\nNotification(close='click',floatable)");
     			br2 = element("br");
     			t3 = text("\nNotification(close='[FLOAT|INT](ms|s)',floatable)\n");
-    			add_location(br0, file$v, 41, 27, 12227);
-    			add_location(br1, file$v, 42, 39, 12271);
-    			add_location(br2, file$v, 43, 37, 12313);
+    			add_location(br0, file$v, 42, 27, 12289);
+    			add_location(br1, file$v, 43, 39, 12333);
+    			add_location(br2, file$v, 44, 37, 12375);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -12183,14 +12205,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_109.name,
     		type: "slot",
-    		source: "(41:109) <Code>",
+    		source: "(42:109) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (41:81) <TextBlock title="Options:">
+    // (42:81) <TextBlock title="Options:">
     function create_default_slot_108(ctx) {
     	let current;
 
@@ -12237,14 +12259,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_108.name,
     		type: "slot",
-    		source: "(41:81) <TextBlock title=\\\"Options:\\\">",
+    		source: "(42:81) <TextBlock title=\\\"Options:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (46:47) <Code>
+    // (47:47) <Code>
     function create_default_slot_107(ctx) {
     	let t;
 
@@ -12264,14 +12286,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_107.name,
     		type: "slot",
-    		source: "(46:47) <Code>",
+    		source: "(47:47) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (46:19) <TextBlock title="Trigger:">
+    // (47:19) <TextBlock title="Trigger:">
     function create_default_slot_106(ctx) {
     	let current;
 
@@ -12318,14 +12340,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_106.name,
     		type: "slot",
-    		source: "(46:19) <TextBlock title=\\\"Trigger:\\\">",
+    		source: "(47:19) <TextBlock title=\\\"Trigger:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (46:222) <Code>
+    // (47:222) <Code>
     function create_default_slot_105(ctx) {
     	let t0;
     	let br0;
@@ -12375,10 +12397,10 @@ var app = (function () {
     			create_component(hint3.$$.fragment);
     			br3 = element("br");
     			t4 = space();
-    			add_location(br0, file$v, 46, 91, 12688);
-    			add_location(br1, file$v, 47, 67, 12760);
-    			add_location(br2, file$v, 48, 67, 12832);
-    			add_location(br3, file$v, 49, 152, 12989);
+    			add_location(br0, file$v, 47, 91, 12750);
+    			add_location(br1, file$v, 48, 67, 12822);
+    			add_location(br2, file$v, 49, 67, 12894);
+    			add_location(br3, file$v, 50, 152, 13051);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -12433,14 +12455,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_105.name,
     		type: "slot",
-    		source: "(46:222) <Code>",
+    		source: "(47:222) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (46:191) <TextBlock title="Parameters:">
+    // (47:191) <TextBlock title="Parameters:">
     function create_default_slot_104(ctx) {
     	let current;
 
@@ -12487,14 +12509,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_104.name,
     		type: "slot",
-    		source: "(46:191) <TextBlock title=\\\"Parameters:\\\">",
+    		source: "(47:191) <TextBlock title=\\\"Parameters:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:19) <TextBlock title="Examples for badge notification:">
+    // (52:19) <TextBlock title="Examples for badge notification:">
     function create_default_slot_103(ctx) {
     	let button0;
     	let button1;
@@ -12515,19 +12537,19 @@ var app = (function () {
     			attr_dev(button0, "data-type", "success");
     			attr_dev(button0, "data-title", "Success :)");
     			attr_dev(button0, "data-text", "Success Text");
-    			add_location(button0, file$v, 50, 71, 13065);
+    			add_location(button0, file$v, 51, 71, 13127);
     			attr_dev(button1, "data-type", "error");
     			attr_dev(button1, "data-title", "Error :(");
     			attr_dev(button1, "data-text", "Error Text");
-    			add_location(button1, file$v, 50, 219, 13213);
+    			add_location(button1, file$v, 51, 219, 13275);
     			attr_dev(button2, "data-type", "info");
     			attr_dev(button2, "data-title", "Info!");
     			attr_dev(button2, "data-text", "Info Text");
-    			add_location(button2, file$v, 50, 359, 13353);
+    			add_location(button2, file$v, 51, 359, 13415);
     			attr_dev(button3, "data-type", "confirm");
     			attr_dev(button3, "data-title", "Confirm?");
     			attr_dev(button3, "data-text", "Confirm Text");
-    			add_location(button3, file$v, 50, 493, 13487);
+    			add_location(button3, file$v, 51, 493, 13549);
 
     			dispose = [
     				listen_dev(button0, "click", notification.show, false, false, false),
@@ -12556,14 +12578,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_103.name,
     		type: "slot",
-    		source: "(51:19) <TextBlock title=\\\"Examples for badge notification:\\\">",
+    		source: "(52:19) <TextBlock title=\\\"Examples for badge notification:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:651) <TextBlock title="Examples for floatable notification:">
+    // (52:651) <TextBlock title="Examples for floatable notification:">
     function create_default_slot_102(ctx) {
     	let button0;
     	let button1;
@@ -12585,22 +12607,22 @@ var app = (function () {
     			attr_dev(button0, "data-type", "success");
     			attr_dev(button0, "data-title", "Success floatable :)");
     			attr_dev(button0, "data-text", "Success Floatable Text");
-    			add_location(button0, file$v, 50, 707, 13701);
+    			add_location(button0, file$v, 51, 707, 13763);
     			attr_dev(button1, "data-floatable", "");
     			attr_dev(button1, "data-type", "error");
     			attr_dev(button1, "data-title", "Error floatable :(");
     			attr_dev(button1, "data-text", "Error Floatable Text");
-    			add_location(button1, file$v, 50, 894, 13888);
+    			add_location(button1, file$v, 51, 894, 13950);
     			attr_dev(button2, "data-floatable", "");
     			attr_dev(button2, "data-type", "info");
     			attr_dev(button2, "data-title", "Info floatable!");
     			attr_dev(button2, "data-text", "Info Floatable Text");
-    			add_location(button2, file$v, 50, 1073, 14067);
+    			add_location(button2, file$v, 51, 1073, 14129);
     			attr_dev(button3, "data-floatable", "");
     			attr_dev(button3, "data-type", "confirm");
     			attr_dev(button3, "data-title", "Confirm floatable?");
     			attr_dev(button3, "data-text", "Confirm Floatable Text");
-    			add_location(button3, file$v, 50, 1246, 14240);
+    			add_location(button3, file$v, 51, 1246, 14302);
 
     			dispose = [
     				listen_dev(button0, "click", notification.show, false, false, false),
@@ -12629,14 +12651,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_102.name,
     		type: "slot",
-    		source: "(51:651) <TextBlock title=\\\"Examples for floatable notification:\\\">",
+    		source: "(52:651) <TextBlock title=\\\"Examples for floatable notification:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (34:735) <Description title="About notifications">
+    // (35:735) <Description title="About notifications">
     function create_default_slot_101(ctx) {
     	let current;
 
@@ -12828,14 +12850,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_101.name,
     		type: "slot",
-    		source: "(34:735) <Description title=\\\"About notifications\\\">",
+    		source: "(35:735) <Description title=\\\"About notifications\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (34:726) <Section>
+    // (35:726) <Section>
     function create_default_slot_100(ctx) {
     	let current;
 
@@ -12883,14 +12905,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_100.name,
     		type: "slot",
-    		source: "(34:726) <Section>",
+    		source: "(35:726) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:1467) <Title size="3">
+    // (52:1467) <Title size="3">
     function create_default_slot_99(ctx) {
     	let t;
 
@@ -12910,14 +12932,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_99.name,
     		type: "slot",
-    		source: "(51:1467) <Title size=\\\"3\\\">",
+    		source: "(52:1467) <Title size=\\\"3\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:1536) <TextBlock>
+    // (52:1536) <TextBlock>
     function create_default_slot_98(ctx) {
     	let t0;
     	let b;
@@ -12929,7 +12951,7 @@ var app = (function () {
     			b = element("b");
     			b.textContent = "Tile";
     			t2 = text("s which can recive a width/height (based on cells from this grid)\nand which keep their original defined aspect ratio even at resizing.");
-    			add_location(b, file$v, 50, 1563, 14557);
+    			add_location(b, file$v, 51, 1563, 14619);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -12947,14 +12969,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_98.name,
     		type: "slot",
-    		source: "(51:1536) <TextBlock>",
+    		source: "(52:1536) <TextBlock>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:270) <Label>
+    // (53:270) <Label>
     function create_default_slot_97(ctx) {
     	let t_value = ctx.image.desc + "";
     	let t;
@@ -12976,14 +12998,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_97.name,
     		type: "slot",
-    		source: "(52:270) <Label>",
+    		source: "(53:270) <Label>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:261) <Overlay>
+    // (53:261) <Overlay>
     function create_default_slot_96(ctx) {
     	let a;
     	let current;
@@ -13005,7 +13027,7 @@ var app = (function () {
     			create_component(icon.$$.fragment);
     			attr_dev(a, "href", "foo");
     			set_style(a, "pointer-events", "all");
-    			add_location(a, file$v, 51, 297, 14931);
+    			add_location(a, file$v, 52, 297, 14993);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
@@ -13044,14 +13066,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_96.name,
     		type: "slot",
-    		source: "(52:261) <Overlay>",
+    		source: "(53:261) <Overlay>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:138) <Tile width="{image.width}" height="{image.height}" gap="{gridGap}">
+    // (53:138) <Tile width="{image.width}" height="{image.height}" gap="{gridGap}">
     function create_default_slot_95(ctx) {
     	let current;
 
@@ -13111,14 +13133,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_95.name,
     		type: "slot",
-    		source: "(52:138) <Tile width=\\\"{image.width}\\\" height=\\\"{image.height}\\\" gap=\\\"{gridGap}\\\">",
+    		source: "(53:138) <Tile width=\\\"{image.width}\\\" height=\\\"{image.height}\\\" gap=\\\"{gridGap}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:115) {#each images as image}
+    // (53:115) {#each images as image}
     function create_each_block(ctx) {
     	let current;
 
@@ -13168,14 +13190,14 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(52:115) {#each images as image}",
+    		source: "(53:115) {#each images as image}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:614) <Label>
+    // (53:614) <Label>
     function create_default_slot_94(ctx) {
     	let t;
 
@@ -13195,14 +13217,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_94.name,
     		type: "slot",
-    		source: "(52:614) <Label>",
+    		source: "(53:614) <Label>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:605) <Overlay>
+    // (53:605) <Overlay>
     function create_default_slot_93(ctx) {
     	let a;
     	let current;
@@ -13224,7 +13246,7 @@ var app = (function () {
     			create_component(icon.$$.fragment);
     			attr_dev(a, "href", "foo");
     			set_style(a, "pointer-events", "all");
-    			add_location(a, file$v, 51, 642, 15276);
+    			add_location(a, file$v, 52, 642, 15338);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
@@ -13263,14 +13285,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_93.name,
     		type: "slot",
-    		source: "(52:605) <Overlay>",
+    		source: "(53:605) <Overlay>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:461) <div class="wrapper" slot="front" style="box-shadow:0 10px 20px rgba(0,0,0,.25)">
+    // (53:461) <div class="wrapper" slot="front" style="box-shadow:0 10px 20px rgba(0,0,0,.25)">
     function create_front_slot_1(ctx) {
     	let div;
     	let current;
@@ -13299,7 +13321,7 @@ var app = (function () {
     			attr_dev(div, "class", "wrapper");
     			attr_dev(div, "slot", "front");
     			set_style(div, "box-shadow", "0 10px 20px rgba(0,0,0,.25)");
-    			add_location(div, file$v, 51, 461, 15095);
+    			add_location(div, file$v, 52, 461, 15157);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -13338,14 +13360,14 @@ var app = (function () {
     		block,
     		id: create_front_slot_1.name,
     		type: "slot",
-    		source: "(52:461) <div class=\\\"wrapper\\\" slot=\\\"front\\\" style=\\\"box-shadow:0 10px 20px rgba(0,0,0,.25)\\\">",
+    		source: "(53:461) <div class=\\\"wrapper\\\" slot=\\\"front\\\" style=\\\"box-shadow:0 10px 20px rgba(0,0,0,.25)\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:845) <Article title="Image Title">
+    // (53:845) <Article title="Image Title">
     function create_default_slot_92(ctx) {
     	let t0_value = ctx.images[0].desc + "";
     	let t0;
@@ -13371,14 +13393,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_92.name,
     		type: "slot",
-    		source: "(52:845) <Article title=\\\"Image Title\\\">",
+    		source: "(53:845) <Article title=\\\"Image Title\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:729) <div class="wrapper" slot="back" style="padding:1em;box-shadow:0 10px 20px rgba(0,0,0,.25);background-color: #ddd;">
+    // (53:729) <div class="wrapper" slot="back" style="padding:1em;box-shadow:0 10px 20px rgba(0,0,0,.25);background-color: #ddd;">
     function create_back_slot_1(ctx) {
     	let div;
     	let current;
@@ -13401,7 +13423,7 @@ var app = (function () {
     			set_style(div, "padding", "1em");
     			set_style(div, "box-shadow", "0 10px 20px rgba(0,0,0,.25)");
     			set_style(div, "background-color", "#ddd");
-    			add_location(div, file$v, 51, 729, 15363);
+    			add_location(div, file$v, 52, 729, 15425);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -13436,14 +13458,14 @@ var app = (function () {
     		block,
     		id: create_back_slot_1.name,
     		type: "slot",
-    		source: "(52:729) <div class=\\\"wrapper\\\" slot=\\\"back\\\" style=\\\"padding:1em;box-shadow:0 10px 20px rgba(0,0,0,.25);background-color: #ddd;\\\">",
+    		source: "(53:729) <div class=\\\"wrapper\\\" slot=\\\"back\\\" style=\\\"padding:1em;box-shadow:0 10px 20px rgba(0,0,0,.25);background-color: #ddd;\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:450) <FlipPanel>
+    // (53:450) <FlipPanel>
     function create_default_slot_91(ctx) {
 
     	const block = {
@@ -13459,14 +13481,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_91.name,
     		type: "slot",
-    		source: "(52:450) <FlipPanel>",
+    		source: "(53:450) <FlipPanel>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:392) <Tile width="6" height="3" clip="{false}" gap="{gridGap}">
+    // (53:392) <Tile width="6" height="3" clip="{false}" gap="{gridGap}">
     function create_default_slot_90(ctx) {
     	let current;
 
@@ -13517,14 +13539,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_90.name,
     		type: "slot",
-    		source: "(52:392) <Tile width=\\\"6\\\" height=\\\"3\\\" clip=\\\"{false}\\\" gap=\\\"{gridGap}\\\">",
+    		source: "(53:392) <Tile width=\\\"6\\\" height=\\\"3\\\" clip=\\\"{false}\\\" gap=\\\"{gridGap}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:1168) <Label>
+    // (53:1168) <Label>
     function create_default_slot_89(ctx) {
     	let t;
 
@@ -13544,14 +13566,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_89.name,
     		type: "slot",
-    		source: "(52:1168) <Label>",
+    		source: "(53:1168) <Label>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:1159) <Overlay>
+    // (53:1159) <Overlay>
     function create_default_slot_88(ctx) {
     	let a;
     	let current;
@@ -13573,7 +13595,7 @@ var app = (function () {
     			create_component(icon.$$.fragment);
     			attr_dev(a, "href", "foo");
     			set_style(a, "pointer-events", "all");
-    			add_location(a, file$v, 51, 1196, 15830);
+    			add_location(a, file$v, 52, 1196, 15892);
     		},
     		m: function mount(target, anchor) {
     			mount_component(label, target, anchor);
@@ -13612,14 +13634,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_88.name,
     		type: "slot",
-    		source: "(52:1159) <Overlay>",
+    		source: "(53:1159) <Overlay>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:1015) <div class="wrapper" slot="front" style="box-shadow:0 10px 20px rgba(0,0,0,.25)">
+    // (53:1015) <div class="wrapper" slot="front" style="box-shadow:0 10px 20px rgba(0,0,0,.25)">
     function create_front_slot$1(ctx) {
     	let div;
     	let current;
@@ -13648,7 +13670,7 @@ var app = (function () {
     			attr_dev(div, "class", "wrapper");
     			attr_dev(div, "slot", "front");
     			set_style(div, "box-shadow", "0 10px 20px rgba(0,0,0,.25)");
-    			add_location(div, file$v, 51, 1015, 15649);
+    			add_location(div, file$v, 52, 1015, 15711);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -13687,14 +13709,14 @@ var app = (function () {
     		block,
     		id: create_front_slot$1.name,
     		type: "slot",
-    		source: "(52:1015) <div class=\\\"wrapper\\\" slot=\\\"front\\\" style=\\\"box-shadow:0 10px 20px rgba(0,0,0,.25)\\\">",
+    		source: "(53:1015) <div class=\\\"wrapper\\\" slot=\\\"front\\\" style=\\\"box-shadow:0 10px 20px rgba(0,0,0,.25)\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:1399) <Article title="Image Title">
+    // (53:1399) <Article title="Image Title">
     function create_default_slot_87(ctx) {
     	let t0_value = ctx.images[1].desc + "";
     	let t0;
@@ -13720,14 +13742,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_87.name,
     		type: "slot",
-    		source: "(52:1399) <Article title=\\\"Image Title\\\">",
+    		source: "(53:1399) <Article title=\\\"Image Title\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:1283) <div class="wrapper" slot="back" style="padding:1em;box-shadow:0 10px 20px rgba(0,0,0,.25);background-color: #ddd;">
+    // (53:1283) <div class="wrapper" slot="back" style="padding:1em;box-shadow:0 10px 20px rgba(0,0,0,.25);background-color: #ddd;">
     function create_back_slot$1(ctx) {
     	let div;
     	let current;
@@ -13750,7 +13772,7 @@ var app = (function () {
     			set_style(div, "padding", "1em");
     			set_style(div, "box-shadow", "0 10px 20px rgba(0,0,0,.25)");
     			set_style(div, "background-color", "#ddd");
-    			add_location(div, file$v, 51, 1283, 15917);
+    			add_location(div, file$v, 52, 1283, 15979);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -13785,14 +13807,14 @@ var app = (function () {
     		block,
     		id: create_back_slot$1.name,
     		type: "slot",
-    		source: "(52:1283) <div class=\\\"wrapper\\\" slot=\\\"back\\\" style=\\\"padding:1em;box-shadow:0 10px 20px rgba(0,0,0,.25);background-color: #ddd;\\\">",
+    		source: "(53:1283) <div class=\\\"wrapper\\\" slot=\\\"back\\\" style=\\\"padding:1em;box-shadow:0 10px 20px rgba(0,0,0,.25);background-color: #ddd;\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:1004) <FlipPanel>
+    // (53:1004) <FlipPanel>
     function create_default_slot_86(ctx) {
 
     	const block = {
@@ -13808,14 +13830,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_86.name,
     		type: "slot",
-    		source: "(52:1004) <FlipPanel>",
+    		source: "(53:1004) <FlipPanel>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:946) <Tile width="6" height="3" clip="{false}" gap="{gridGap}">
+    // (53:946) <Tile width="6" height="3" clip="{false}" gap="{gridGap}">
     function create_default_slot_85(ctx) {
     	let current;
 
@@ -13866,14 +13888,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_85.name,
     		type: "slot",
-    		source: "(52:946) <Tile width=\\\"6\\\" height=\\\"3\\\" clip=\\\"{false}\\\" gap=\\\"{gridGap}\\\">",
+    		source: "(53:946) <Tile width=\\\"6\\\" height=\\\"3\\\" clip=\\\"{false}\\\" gap=\\\"{gridGap}\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:109) <Grid>
+    // (53:109) <Grid>
     function create_default_slot_84(ctx) {
     	let each_1_anchor;
     	let current;
@@ -14009,14 +14031,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_84.name,
     		type: "slot",
-    		source: "(52:109) <Grid>",
+    		source: "(53:109) <Grid>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:80) <TextBlock title="Examples:">
+    // (53:80) <TextBlock title="Examples:">
     function create_default_slot_83(ctx) {
     	let current;
 
@@ -14063,14 +14085,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_83.name,
     		type: "slot",
-    		source: "(52:80) <TextBlock title=\\\"Examples:\\\">",
+    		source: "(53:80) <TextBlock title=\\\"Examples:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:1504) <Description title="About grid">
+    // (52:1504) <Description title="About grid">
     function create_default_slot_82(ctx) {
     	let current;
 
@@ -14138,14 +14160,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_82.name,
     		type: "slot",
-    		source: "(51:1504) <Description title=\\\"About grid\\\">",
+    		source: "(52:1504) <Description title=\\\"About grid\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (51:1495) <Section>
+    // (52:1495) <Section>
     function create_default_slot_81(ctx) {
     	let current;
 
@@ -14193,14 +14215,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_81.name,
     		type: "slot",
-    		source: "(51:1495) <Section>",
+    		source: "(52:1495) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:1543) <Title size="2">
+    // (53:1543) <Title size="2">
     function create_default_slot_80(ctx) {
     	let t;
 
@@ -14220,14 +14242,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_80.name,
     		type: "slot",
-    		source: "(52:1543) <Title size=\\\"2\\\">",
+    		source: "(53:1543) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:1620) <TextBlock>
+    // (53:1620) <TextBlock>
     function create_default_slot_79(ctx) {
     	let t;
 
@@ -14247,14 +14269,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_79.name,
     		type: "slot",
-    		source: "(52:1620) <TextBlock>",
+    		source: "(53:1620) <TextBlock>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:1757) <Code>
+    // (53:1757) <Code>
     function create_default_slot_78(ctx) {
     	let t;
 
@@ -14274,14 +14296,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_78.name,
     		type: "slot",
-    		source: "(52:1757) <Code>",
+    		source: "(53:1757) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:1729) <TextBlock title="Options:">
+    // (53:1729) <TextBlock title="Options:">
     function create_default_slot_77(ctx) {
     	let current;
 
@@ -14328,14 +14350,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_77.name,
     		type: "slot",
-    		source: "(52:1729) <TextBlock title=\\\"Options:\\\">",
+    		source: "(53:1729) <TextBlock title=\\\"Options:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (54:50) <Code>
+    // (55:50) <Code>
     function create_default_slot_76(ctx) {
     	let t0;
     	let br;
@@ -14353,7 +14375,7 @@ var app = (function () {
     			create_component(hint.$$.fragment);
     			br = element("br");
     			t1 = space();
-    			add_location(br, file$v, 54, 58, 16541);
+    			add_location(br, file$v, 55, 58, 16603);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -14384,14 +14406,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_76.name,
     		type: "slot",
-    		source: "(54:50) <Code>",
+    		source: "(55:50) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (54:19) <TextBlock title="Parameters:">
+    // (55:19) <TextBlock title="Parameters:">
     function create_default_slot_75(ctx) {
     	let current;
 
@@ -14438,14 +14460,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_75.name,
     		type: "slot",
-    		source: "(54:19) <TextBlock title=\\\"Parameters:\\\">",
+    		source: "(55:19) <TextBlock title=\\\"Parameters:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (56:48) <Article title="First Article">
+    // (57:48) <Article title="First Article">
     function create_default_slot_74(ctx) {
     	let t;
 
@@ -14465,14 +14487,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_74.name,
     		type: "slot",
-    		source: "(56:48) <Article title=\\\"First Article\\\">",
+    		source: "(57:48) <Article title=\\\"First Article\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (56:19) <TextBlock title="Examples:">
+    // (57:19) <TextBlock title="Examples:">
     function create_default_slot_73(ctx) {
     	let current;
 
@@ -14520,14 +14542,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_73.name,
     		type: "slot",
-    		source: "(56:19) <TextBlock title=\\\"Examples:\\\">",
+    		source: "(57:19) <TextBlock title=\\\"Examples:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:1584) <Description title="About articles">
+    // (53:1584) <Description title="About articles">
     function create_default_slot_72(ctx) {
     	let current;
 
@@ -14637,14 +14659,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_72.name,
     		type: "slot",
-    		source: "(52:1584) <Description title=\\\"About articles\\\">",
+    		source: "(53:1584) <Description title=\\\"About articles\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (52:1575) <Section>
+    // (53:1575) <Section>
     function create_default_slot_71(ctx) {
     	let current;
 
@@ -14692,14 +14714,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_71.name,
     		type: "slot",
-    		source: "(52:1575) <Section>",
+    		source: "(53:1575) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (56:143) <Title size="2">
+    // (57:143) <Title size="2">
     function create_default_slot_70(ctx) {
     	let t;
 
@@ -14719,14 +14741,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_70.name,
     		type: "slot",
-    		source: "(56:143) <Title size=\\\"2\\\">",
+    		source: "(57:143) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (56:214) <TextBlock>
+    // (57:214) <TextBlock>
     function create_default_slot_69(ctx) {
     	let t0;
     	let b;
@@ -14743,10 +14765,10 @@ var app = (function () {
     			a = element("a");
     			a.textContent = "named slots";
     			t4 = text("'.");
-    			add_location(b, file$v, 55, 242, 16788);
+    			add_location(b, file$v, 56, 242, 16850);
     			attr_dev(a, "href", "https://svelte.dev/tutorial/named-slots");
     			attr_dev(a, "target", "_blank_");
-    			add_location(a, file$v, 56, 67, 16935);
+    			add_location(a, file$v, 57, 67, 16997);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -14768,14 +14790,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_69.name,
     		type: "slot",
-    		source: "(56:214) <TextBlock>",
+    		source: "(57:214) <TextBlock>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:227) <div class="wrapper" slot="image">
+    // (58:227) <div class="wrapper" slot="image">
     function create_image_slot_2(ctx) {
     	let div;
     	let current;
@@ -14794,7 +14816,7 @@ var app = (function () {
     			create_component(image.$$.fragment);
     			attr_dev(div, "class", "wrapper");
     			attr_dev(div, "slot", "image");
-    			add_location(div, file$v, 56, 227, 17095);
+    			add_location(div, file$v, 57, 227, 17157);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -14821,14 +14843,14 @@ var app = (function () {
     		block,
     		id: create_image_slot_2.name,
     		type: "slot",
-    		source: "(57:227) <div class=\\\"wrapper\\\" slot=\\\"image\\\">",
+    		source: "(58:227) <div class=\\\"wrapper\\\" slot=\\\"image\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:330) <span slot="shortDesc">
+    // (58:330) <span slot="shortDesc">
     function create_shortDesc_slot_2(ctx) {
     	let span;
 
@@ -14837,7 +14859,7 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "Short Description";
     			attr_dev(span, "slot", "shortDesc");
-    			add_location(span, file$v, 56, 330, 17198);
+    			add_location(span, file$v, 57, 330, 17260);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -14851,14 +14873,14 @@ var app = (function () {
     		block,
     		id: create_shortDesc_slot_2.name,
     		type: "slot",
-    		source: "(57:330) <span slot=\\\"shortDesc\\\">",
+    		source: "(58:330) <span slot=\\\"shortDesc\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:377) <span slot="longDesc">
+    // (58:377) <span slot="longDesc">
     function create_longDesc_slot_2(ctx) {
     	let span;
 
@@ -14867,7 +14889,7 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "Long Description";
     			attr_dev(span, "slot", "longDesc");
-    			add_location(span, file$v, 56, 377, 17245);
+    			add_location(span, file$v, 57, 377, 17307);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -14881,14 +14903,14 @@ var app = (function () {
     		block,
     		id: create_longDesc_slot_2.name,
     		type: "slot",
-    		source: "(57:377) <span slot=\\\"longDesc\\\">",
+    		source: "(58:377) <span slot=\\\"longDesc\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:221) <Card>
+    // (58:221) <Card>
     function create_default_slot_68(ctx) {
 
     	const block = {
@@ -14904,14 +14926,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_68.name,
     		type: "slot",
-    		source: "(57:221) <Card>",
+    		source: "(58:221) <Card>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:435) <div class="wrapper" slot="image">
+    // (58:435) <div class="wrapper" slot="image">
     function create_image_slot_1(ctx) {
     	let div;
     	let current;
@@ -14930,7 +14952,7 @@ var app = (function () {
     			create_component(image.$$.fragment);
     			attr_dev(div, "class", "wrapper");
     			attr_dev(div, "slot", "image");
-    			add_location(div, file$v, 56, 435, 17303);
+    			add_location(div, file$v, 57, 435, 17365);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -14957,14 +14979,14 @@ var app = (function () {
     		block,
     		id: create_image_slot_1.name,
     		type: "slot",
-    		source: "(57:435) <div class=\\\"wrapper\\\" slot=\\\"image\\\">",
+    		source: "(58:435) <div class=\\\"wrapper\\\" slot=\\\"image\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:538) <span slot="shortDesc">
+    // (58:538) <span slot="shortDesc">
     function create_shortDesc_slot_1(ctx) {
     	let span;
 
@@ -14973,7 +14995,7 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "Short Description";
     			attr_dev(span, "slot", "shortDesc");
-    			add_location(span, file$v, 56, 538, 17406);
+    			add_location(span, file$v, 57, 538, 17468);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -14987,14 +15009,14 @@ var app = (function () {
     		block,
     		id: create_shortDesc_slot_1.name,
     		type: "slot",
-    		source: "(57:538) <span slot=\\\"shortDesc\\\">",
+    		source: "(58:538) <span slot=\\\"shortDesc\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:585) <span slot="longDesc">
+    // (58:585) <span slot="longDesc">
     function create_longDesc_slot_1(ctx) {
     	let span;
 
@@ -15003,7 +15025,7 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "Long Description";
     			attr_dev(span, "slot", "longDesc");
-    			add_location(span, file$v, 56, 585, 17453);
+    			add_location(span, file$v, 57, 585, 17515);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -15017,14 +15039,14 @@ var app = (function () {
     		block,
     		id: create_longDesc_slot_1.name,
     		type: "slot",
-    		source: "(57:585) <span slot=\\\"longDesc\\\">",
+    		source: "(58:585) <span slot=\\\"longDesc\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:429) <Card>
+    // (58:429) <Card>
     function create_default_slot_67(ctx) {
 
     	const block = {
@@ -15040,14 +15062,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_67.name,
     		type: "slot",
-    		source: "(57:429) <Card>",
+    		source: "(58:429) <Card>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:643) <div class="wrapper" slot="image">
+    // (58:643) <div class="wrapper" slot="image">
     function create_image_slot(ctx) {
     	let div;
     	let current;
@@ -15066,7 +15088,7 @@ var app = (function () {
     			create_component(image.$$.fragment);
     			attr_dev(div, "class", "wrapper");
     			attr_dev(div, "slot", "image");
-    			add_location(div, file$v, 56, 643, 17511);
+    			add_location(div, file$v, 57, 643, 17573);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -15093,14 +15115,14 @@ var app = (function () {
     		block,
     		id: create_image_slot.name,
     		type: "slot",
-    		source: "(57:643) <div class=\\\"wrapper\\\" slot=\\\"image\\\">",
+    		source: "(58:643) <div class=\\\"wrapper\\\" slot=\\\"image\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:746) <span slot="shortDesc">
+    // (58:746) <span slot="shortDesc">
     function create_shortDesc_slot(ctx) {
     	let span;
 
@@ -15109,7 +15131,7 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "Short Description";
     			attr_dev(span, "slot", "shortDesc");
-    			add_location(span, file$v, 56, 746, 17614);
+    			add_location(span, file$v, 57, 746, 17676);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -15123,14 +15145,14 @@ var app = (function () {
     		block,
     		id: create_shortDesc_slot.name,
     		type: "slot",
-    		source: "(57:746) <span slot=\\\"shortDesc\\\">",
+    		source: "(58:746) <span slot=\\\"shortDesc\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:793) <span slot="longDesc">
+    // (58:793) <span slot="longDesc">
     function create_longDesc_slot(ctx) {
     	let span;
 
@@ -15139,7 +15161,7 @@ var app = (function () {
     			span = element("span");
     			span.textContent = "Long Description";
     			attr_dev(span, "slot", "longDesc");
-    			add_location(span, file$v, 56, 793, 17661);
+    			add_location(span, file$v, 57, 793, 17723);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -15153,14 +15175,14 @@ var app = (function () {
     		block,
     		id: create_longDesc_slot.name,
     		type: "slot",
-    		source: "(57:793) <span slot=\\\"longDesc\\\">",
+    		source: "(58:793) <span slot=\\\"longDesc\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:637) <Card>
+    // (58:637) <Card>
     function create_default_slot_66(ctx) {
 
     	const block = {
@@ -15176,14 +15198,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_66.name,
     		type: "slot",
-    		source: "(57:637) <Card>",
+    		source: "(58:637) <Card>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:163) <TextBlock title="Examples (click on card to flip/back):">
+    // (58:163) <TextBlock title="Examples (click on card to flip/back):">
     function create_default_slot_65(ctx) {
     	let current;
 
@@ -15285,14 +15307,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_65.name,
     		type: "slot",
-    		source: "(57:163) <TextBlock title=\\\"Examples (click on card to flip/back):\\\">",
+    		source: "(58:163) <TextBlock title=\\\"Examples (click on card to flip/back):\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (56:181) <Description title="About cards">
+    // (57:181) <Description title="About cards">
     function create_default_slot_64(ctx) {
     	let current;
 
@@ -15360,14 +15382,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_64.name,
     		type: "slot",
-    		source: "(56:181) <Description title=\\\"About cards\\\">",
+    		source: "(57:181) <Description title=\\\"About cards\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (56:172) <Section>
+    // (57:172) <Section>
     function create_default_slot_63(ctx) {
     	let current;
 
@@ -15415,14 +15437,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_63.name,
     		type: "slot",
-    		source: "(56:172) <Section>",
+    		source: "(57:172) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:881) <Title size="2">
+    // (58:881) <Title size="2">
     function create_default_slot_62(ctx) {
     	let t;
 
@@ -15442,14 +15464,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_62.name,
     		type: "slot",
-    		source: "(57:881) <Title size=\\\"2\\\">",
+    		source: "(58:881) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:934) <AccordionEntry title="Tab A">
+    // (58:934) <AccordionEntry title="Tab A">
     function create_default_slot_61(ctx) {
     	let t;
 
@@ -15469,14 +15491,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_61.name,
     		type: "slot",
-    		source: "(57:934) <AccordionEntry title=\\\"Tab A\\\">",
+    		source: "(58:934) <AccordionEntry title=\\\"Tab A\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:990) <AccordionEntry title="Tab B">
+    // (58:990) <AccordionEntry title="Tab B">
     function create_default_slot_60(ctx) {
     	let t;
 
@@ -15496,14 +15518,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_60.name,
     		type: "slot",
-    		source: "(57:990) <AccordionEntry title=\\\"Tab B\\\">",
+    		source: "(58:990) <AccordionEntry title=\\\"Tab B\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:1046) <AccordionEntry title="Tab C">
+    // (58:1046) <AccordionEntry title="Tab C">
     function create_default_slot_59(ctx) {
     	let t;
 
@@ -15523,14 +15545,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_59.name,
     		type: "slot",
-    		source: "(57:1046) <AccordionEntry title=\\\"Tab C\\\">",
+    		source: "(58:1046) <AccordionEntry title=\\\"Tab C\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:1102) <AccordionEntry title="Tab D">
+    // (58:1102) <AccordionEntry title="Tab D">
     function create_default_slot_58(ctx) {
     	let t;
 
@@ -15550,14 +15572,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_58.name,
     		type: "slot",
-    		source: "(57:1102) <AccordionEntry title=\\\"Tab D\\\">",
+    		source: "(58:1102) <AccordionEntry title=\\\"Tab D\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:1158) <AccordionEntry title="Tab E">
+    // (58:1158) <AccordionEntry title="Tab E">
     function create_default_slot_57(ctx) {
     	let t;
 
@@ -15577,14 +15599,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_57.name,
     		type: "slot",
-    		source: "(57:1158) <AccordionEntry title=\\\"Tab E\\\">",
+    		source: "(58:1158) <AccordionEntry title=\\\"Tab E\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:923) <Accordion>
+    // (58:923) <Accordion>
     function create_default_slot_56(ctx) {
     	let current;
 
@@ -15716,14 +15738,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_56.name,
     		type: "slot",
-    		source: "(57:923) <Accordion>",
+    		source: "(58:923) <Accordion>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:914) <Section>
+    // (58:914) <Section>
     function create_default_slot_55(ctx) {
     	let current;
 
@@ -15770,14 +15792,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_55.name,
     		type: "slot",
-    		source: "(57:914) <Section>",
+    		source: "(58:914) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:1236) <Title size="2">
+    // (58:1236) <Title size="2">
     function create_default_slot_54(ctx) {
     	let t;
 
@@ -15797,14 +15819,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_54.name,
     		type: "slot",
-    		source: "(57:1236) <Title size=\\\"2\\\">",
+    		source: "(58:1236) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:1307) <TextBlock>
+    // (58:1307) <TextBlock>
     function create_default_slot_53(ctx) {
     	let t;
 
@@ -15824,14 +15846,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_53.name,
     		type: "slot",
-    		source: "(57:1307) <TextBlock>",
+    		source: "(58:1307) <TextBlock>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (60:144) <WiperPage>
+    // (61:144) <WiperPage>
     function create_default_slot_52(ctx) {
     	let current;
 
@@ -15870,14 +15892,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_52.name,
     		type: "slot",
-    		source: "(60:144) <WiperPage>",
+    		source: "(61:144) <WiperPage>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (60:230) <WiperPage>
+    // (61:230) <WiperPage>
     function create_default_slot_51(ctx) {
     	let current;
 
@@ -15916,14 +15938,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_51.name,
     		type: "slot",
-    		source: "(60:230) <WiperPage>",
+    		source: "(61:230) <WiperPage>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (60:316) <WiperPage>
+    // (61:316) <WiperPage>
     function create_default_slot_50(ctx) {
     	let current;
 
@@ -15962,14 +15984,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_50.name,
     		type: "slot",
-    		source: "(60:316) <WiperPage>",
+    		source: "(61:316) <WiperPage>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (60:137) <Wiper>
+    // (61:137) <Wiper>
     function create_default_slot_49(ctx) {
     	let current;
 
@@ -16056,14 +16078,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_49.name,
     		type: "slot",
-    		source: "(60:137) <Wiper>",
+    		source: "(61:137) <Wiper>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (60:53) <TextBlock title="Examples:">
+    // (61:53) <TextBlock title="Examples:">
     function create_default_slot_48(ctx) {
     	let div;
     	let current;
@@ -16083,7 +16105,7 @@ var app = (function () {
     			set_style(div, "position", "relative");
     			set_style(div, "width", "50vw");
     			set_style(div, "height", "50vh");
-    			add_location(div, file$v, 59, 82, 18487);
+    			add_location(div, file$v, 60, 82, 18549);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, div, anchor);
@@ -16118,14 +16140,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_48.name,
     		type: "slot",
-    		source: "(60:53) <TextBlock title=\\\"Examples:\\\">",
+    		source: "(61:53) <TextBlock title=\\\"Examples:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:1274) <Description title="About wiper">
+    // (58:1274) <Description title="About wiper">
     function create_default_slot_47(ctx) {
     	let current;
 
@@ -16193,14 +16215,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_47.name,
     		type: "slot",
-    		source: "(57:1274) <Description title=\\\"About wiper\\\">",
+    		source: "(58:1274) <Description title=\\\"About wiper\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (57:1265) <Section>
+    // (58:1265) <Section>
     function create_default_slot_46(ctx) {
     	let current;
 
@@ -16248,14 +16270,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_46.name,
     		type: "slot",
-    		source: "(57:1265) <Section>",
+    		source: "(58:1265) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (60:452) <Title size="2">
+    // (61:452) <Title size="2">
     function create_default_slot_45(ctx) {
     	let t;
 
@@ -16275,14 +16297,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_45.name,
     		type: "slot",
-    		source: "(60:452) <Title size=\\\"2\\\">",
+    		source: "(61:452) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (61:49) <Code>
+    // (62:49) <Code>
     function create_default_slot_44(ctx) {
     	let t;
 
@@ -16302,14 +16324,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_44.name,
     		type: "slot",
-    		source: "(61:49) <Code>",
+    		source: "(62:49) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (60:531) <TextBlock>
+    // (61:531) <TextBlock>
     function create_default_slot_43(ctx) {
     	let t0;
     	let br0;
@@ -16340,9 +16362,9 @@ var app = (function () {
     			t3 = text("\nAs container the SideBar can be filled with any kind of content.");
     			br2 = element("br");
     			t4 = text("\nIt'll stay fixed when scrolling.");
-    			add_location(br0, file$v, 59, 603, 19008);
-    			add_location(br1, file$v, 60, 77, 19090);
-    			add_location(br2, file$v, 61, 64, 19159);
+    			add_location(br0, file$v, 60, 603, 19070);
+    			add_location(br1, file$v, 61, 77, 19152);
+    			add_location(br2, file$v, 62, 64, 19221);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, t0, anchor);
@@ -16391,14 +16413,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_43.name,
     		type: "slot",
-    		source: "(60:531) <TextBlock>",
+    		source: "(61:531) <TextBlock>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:72) <Code>
+    // (64:72) <Code>
     function create_default_slot_42(ctx) {
     	let t;
 
@@ -16418,14 +16440,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_42.name,
     		type: "slot",
-    		source: "(63:72) <Code>",
+    		source: "(64:72) <Code>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:44) <TextBlock title="Trigger:">
+    // (64:44) <TextBlock title="Trigger:">
     function create_default_slot_41(ctx) {
     	let current;
 
@@ -16472,14 +16494,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_41.name,
     		type: "slot",
-    		source: "(63:44) <TextBlock title=\\\"Trigger:\\\">",
+    		source: "(64:44) <TextBlock title=\\\"Trigger:\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (60:492) <Description title="About the sidebar">
+    // (61:492) <Description title="About the sidebar">
     function create_default_slot_40(ctx) {
     	let current;
 
@@ -16547,14 +16569,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_40.name,
     		type: "slot",
-    		source: "(60:492) <Description title=\\\"About the sidebar\\\">",
+    		source: "(61:492) <Description title=\\\"About the sidebar\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (60:483) <Section>
+    // (61:483) <Section>
     function create_default_slot_39(ctx) {
     	let current;
 
@@ -16602,14 +16624,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_39.name,
     		type: "slot",
-    		source: "(60:483) <Section>",
+    		source: "(61:483) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (1:2800) <PageBlock>
+    // (1:2799) <PageBlock>
     function create_default_slot_38(ctx) {
     	let current;
 
@@ -17210,14 +17232,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_38.name,
     		type: "slot",
-    		source: "(1:2800) <PageBlock>",
+    		source: "(1:2799) <PageBlock>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:195) <Title size="2">
+    // (64:195) <Title size="2">
     function create_default_slot_37(ctx) {
     	let t;
 
@@ -17237,14 +17259,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_37.name,
     		type: "slot",
-    		source: "(63:195) <Title size=\\\"2\\\">",
+    		source: "(64:195) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:225) <Section>
+    // (64:225) <Section>
     function create_default_slot_36(ctx) {
     	let t;
 
@@ -17264,14 +17286,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_36.name,
     		type: "slot",
-    		source: "(63:225) <Section>",
+    		source: "(64:225) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:254) <Title size="2">
+    // (64:254) <Title size="2">
     function create_default_slot_35(ctx) {
     	let t;
 
@@ -17291,14 +17313,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_35.name,
     		type: "slot",
-    		source: "(63:254) <Title size=\\\"2\\\">",
+    		source: "(64:254) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:284) <Section>
+    // (64:284) <Section>
     function create_default_slot_34(ctx) {
     	let t;
 
@@ -17318,14 +17340,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_34.name,
     		type: "slot",
-    		source: "(63:284) <Section>",
+    		source: "(64:284) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:313) <Title size="2">
+    // (64:313) <Title size="2">
     function create_default_slot_33(ctx) {
     	let t;
 
@@ -17345,14 +17367,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_33.name,
     		type: "slot",
-    		source: "(63:313) <Title size=\\\"2\\\">",
+    		source: "(64:313) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:348) <Section>
+    // (64:348) <Section>
     function create_default_slot_32(ctx) {
     	let t;
 
@@ -17372,14 +17394,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_32.name,
     		type: "slot",
-    		source: "(63:348) <Section>",
+    		source: "(64:348) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:377) <Title size="2">
+    // (64:377) <Title size="2">
     function create_default_slot_31(ctx) {
     	let t;
 
@@ -17399,14 +17421,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_31.name,
     		type: "slot",
-    		source: "(63:377) <Title size=\\\"2\\\">",
+    		source: "(64:377) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:405) <Section>
+    // (64:405) <Section>
     function create_default_slot_30(ctx) {
     	let t;
 
@@ -17426,14 +17448,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_30.name,
     		type: "slot",
-    		source: "(63:405) <Section>",
+    		source: "(64:405) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:434) <Title size="2">
+    // (64:434) <Title size="2">
     function create_default_slot_29(ctx) {
     	let t;
 
@@ -17453,14 +17475,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_29.name,
     		type: "slot",
-    		source: "(63:434) <Title size=\\\"2\\\">",
+    		source: "(64:434) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:469) <Section>
+    // (64:469) <Section>
     function create_default_slot_28(ctx) {
     	let t;
 
@@ -17480,14 +17502,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_28.name,
     		type: "slot",
-    		source: "(63:469) <Section>",
+    		source: "(64:469) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:498) <Title size="2">
+    // (64:498) <Title size="2">
     function create_default_slot_27(ctx) {
     	let t;
 
@@ -17507,14 +17529,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_27.name,
     		type: "slot",
-    		source: "(63:498) <Title size=\\\"2\\\">",
+    		source: "(64:498) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:532) <Section>
+    // (64:532) <Section>
     function create_default_slot_26(ctx) {
     	let t;
 
@@ -17534,14 +17556,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_26.name,
     		type: "slot",
-    		source: "(63:532) <Section>",
+    		source: "(64:532) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:561) <Title size="2">
+    // (64:561) <Title size="2">
     function create_default_slot_25(ctx) {
     	let t;
 
@@ -17561,14 +17583,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_25.name,
     		type: "slot",
-    		source: "(63:561) <Title size=\\\"2\\\">",
+    		source: "(64:561) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:589) <Section>
+    // (64:589) <Section>
     function create_default_slot_24(ctx) {
     	let t;
 
@@ -17588,14 +17610,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_24.name,
     		type: "slot",
-    		source: "(63:589) <Section>",
+    		source: "(64:589) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:618) <Title size="2">
+    // (64:618) <Title size="2">
     function create_default_slot_23(ctx) {
     	let t;
 
@@ -17615,14 +17637,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_23.name,
     		type: "slot",
-    		source: "(63:618) <Title size=\\\"2\\\">",
+    		source: "(64:618) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:646) <Section>
+    // (64:646) <Section>
     function create_default_slot_22(ctx) {
     	let t;
 
@@ -17642,14 +17664,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_22.name,
     		type: "slot",
-    		source: "(63:646) <Section>",
+    		source: "(64:646) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:675) <Title size="2">
+    // (64:675) <Title size="2">
     function create_default_slot_21(ctx) {
     	let t;
 
@@ -17669,14 +17691,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_21.name,
     		type: "slot",
-    		source: "(63:675) <Title size=\\\"2\\\">",
+    		source: "(64:675) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:707) <Section>
+    // (64:707) <Section>
     function create_default_slot_20(ctx) {
     	let t;
 
@@ -17696,14 +17718,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_20.name,
     		type: "slot",
-    		source: "(63:707) <Section>",
+    		source: "(64:707) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:736) <Title size="2">
+    // (64:736) <Title size="2">
     function create_default_slot_19(ctx) {
     	let t;
 
@@ -17723,14 +17745,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_19.name,
     		type: "slot",
-    		source: "(63:736) <Title size=\\\"2\\\">",
+    		source: "(64:736) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:765) <Section>
+    // (64:765) <Section>
     function create_default_slot_18(ctx) {
     	let t;
 
@@ -17750,14 +17772,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_18.name,
     		type: "slot",
-    		source: "(63:765) <Section>",
+    		source: "(64:765) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:794) <Title size="2">
+    // (64:794) <Title size="2">
     function create_default_slot_17(ctx) {
     	let t;
 
@@ -17777,14 +17799,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_17.name,
     		type: "slot",
-    		source: "(63:794) <Title size=\\\"2\\\">",
+    		source: "(64:794) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:823) <Section>
+    // (64:823) <Section>
     function create_default_slot_16(ctx) {
     	let t;
 
@@ -17804,14 +17826,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_16.name,
     		type: "slot",
-    		source: "(63:823) <Section>",
+    		source: "(64:823) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:852) <Title size="2">
+    // (64:852) <Title size="2">
     function create_default_slot_15(ctx) {
     	let t;
 
@@ -17831,14 +17853,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_15.name,
     		type: "slot",
-    		source: "(63:852) <Title size=\\\"2\\\">",
+    		source: "(64:852) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:888) <Section>
+    // (64:888) <Section>
     function create_default_slot_14(ctx) {
     	let t;
 
@@ -17858,14 +17880,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_14.name,
     		type: "slot",
-    		source: "(63:888) <Section>",
+    		source: "(64:888) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:917) <Title size="2">
+    // (64:917) <Title size="2">
     function create_default_slot_13(ctx) {
     	let t;
 
@@ -17885,14 +17907,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_13.name,
     		type: "slot",
-    		source: "(63:917) <Title size=\\\"2\\\">",
+    		source: "(64:917) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:948) <Section>
+    // (64:948) <Section>
     function create_default_slot_12(ctx) {
     	let t;
 
@@ -17912,14 +17934,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_12.name,
     		type: "slot",
-    		source: "(63:948) <Section>",
+    		source: "(64:948) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:977) <Title size="2">
+    // (64:977) <Title size="2">
     function create_default_slot_11(ctx) {
     	let t;
 
@@ -17939,14 +17961,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_11.name,
     		type: "slot",
-    		source: "(63:977) <Title size=\\\"2\\\">",
+    		source: "(64:977) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:1008) <Section>
+    // (64:1008) <Section>
     function create_default_slot_10(ctx) {
     	let t;
 
@@ -17966,14 +17988,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_10.name,
     		type: "slot",
-    		source: "(63:1008) <Section>",
+    		source: "(64:1008) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:1037) <Title size="2">
+    // (64:1037) <Title size="2">
     function create_default_slot_9(ctx) {
     	let t;
 
@@ -17993,14 +18015,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_9.name,
     		type: "slot",
-    		source: "(63:1037) <Title size=\\\"2\\\">",
+    		source: "(64:1037) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:1071) <Section>
+    // (64:1071) <Section>
     function create_default_slot_8(ctx) {
     	let t;
 
@@ -18020,14 +18042,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_8.name,
     		type: "slot",
-    		source: "(63:1071) <Section>",
+    		source: "(64:1071) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:1100) <Title size="2">
+    // (64:1100) <Title size="2">
     function create_default_slot_7(ctx) {
     	let t;
 
@@ -18047,14 +18069,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_7.name,
     		type: "slot",
-    		source: "(63:1100) <Title size=\\\"2\\\">",
+    		source: "(64:1100) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:1128) <Section>
+    // (64:1128) <Section>
     function create_default_slot_6(ctx) {
     	let t;
 
@@ -18074,14 +18096,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_6.name,
     		type: "slot",
-    		source: "(63:1128) <Section>",
+    		source: "(64:1128) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:1157) <Title size="2">
+    // (64:1157) <Title size="2">
     function create_default_slot_5(ctx) {
     	let t;
 
@@ -18101,14 +18123,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_5.name,
     		type: "slot",
-    		source: "(63:1157) <Title size=\\\"2\\\">",
+    		source: "(64:1157) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:1186) <Section>
+    // (64:1186) <Section>
     function create_default_slot_4(ctx) {
     	let t;
 
@@ -18128,14 +18150,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_4.name,
     		type: "slot",
-    		source: "(63:1186) <Section>",
+    		source: "(64:1186) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:1215) <Title size="2">
+    // (64:1215) <Title size="2">
     function create_default_slot_3(ctx) {
     	let t;
 
@@ -18155,14 +18177,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_3.name,
     		type: "slot",
-    		source: "(63:1215) <Title size=\\\"2\\\">",
+    		source: "(64:1215) <Title size=\\\"2\\\">",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:1243) <Section>
+    // (64:1243) <Section>
     function create_default_slot_2(ctx) {
     	let t;
 
@@ -18182,14 +18204,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_2.name,
     		type: "slot",
-    		source: "(63:1243) <Section>",
+    		source: "(64:1243) <Section>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (63:176) <PageBlock hatched>
+    // (64:176) <PageBlock hatched>
     function create_default_slot_1(ctx) {
     	let current;
 
@@ -18954,14 +18976,14 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(63:176) <PageBlock hatched>",
+    		source: "(64:176) <PageBlock hatched>",
     		ctx
     	});
 
     	return block;
     }
 
-    // (1:2794) <Page>
+    // (1:2793) <Page>
     function create_default_slot$1(ctx) {
     	let current;
 
@@ -19029,7 +19051,7 @@ var app = (function () {
     		block,
     		id: create_default_slot$1.name,
     		type: "slot",
-    		source: "(1:2794) <Page>",
+    		source: "(1:2793) <Page>",
     		ctx
     	});
 
