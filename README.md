@@ -37,7 +37,7 @@ Icons used in this projects were create with [Fontello](http://fontello.com/).
 
 ## Resources
 
-Images shown on the demo-page and use as references in the code are my own art. If you're intrested in art - or
- just curios about what i did there - feel free to visit my galleries:
+Images shown on the demo-page and used as references in the code are my own art. If you're intrested in art - or
+ just curious about what i did there - feel free to visit my galleries:
 - [ArtStation](https://www.artstation.com/xistenceimaginations)
 - [DeviantArt](https://www.deviantart.com/xistenceimaginations)
