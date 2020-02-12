@@ -9,5 +9,6 @@
     .svAccordion {
         background: var(--bg-color);
         border: 1px solid var(--primary-color);
+        border-radius: 5px;
     }
 </style>

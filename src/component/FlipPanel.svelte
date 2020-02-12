@@ -1,5 +1,5 @@
 <template lang="pug">
-    .svFlipPanel(class="{flipStyle}",on:click="{flip}")
+    .svFlipPanel(class="{flipState} {flipStyle}",on:click="{flip}")
         .svFlipPanel__content
             .svFlipPanel__content_front
                 slot(name="front")
@@ -8,13 +8,23 @@
 </template>
 
 <script>
+    import { createEventDispatcher } from 'svelte';
+
+    export let horizontal;
+
+    const dispatch = createEventDispatcher();
     let flipped = false;
+
     // TODO option to provide an element that flips back the panel (instead of flipping back by clicking the panel itself)
 
-    $: flipStyle = flipped ? 'svFlipPanel--flipped' : '';
+    $: flipStyle = (horizontal !== undefined ? 'svFlipPanel--horizontal' : 'svFlipPanel--vertical');
+    $: flipState = (flipped ? 'svFlipPanel--flipped' : '');
 
     function flip() {
         flipped = !flipped;
+        dispatch('flip', {
+            state: flipped
+        });
     }
 </script>
 
@@ -44,18 +54,45 @@
                 position: absolute;
                 top: 0;
                 left: 0;
-                //background-color: rgb(127, 127, 127);
             }
             &_front {
                 z-index: 2;
-                transform: rotateY(0deg);
             }
-            &_back {
-                transform: rotateY(180deg);
+        }
+    }
+
+    .svFlipPanel--horizontal {
+        .svFlipPanel {
+            &__content {
+                &_front {
+                    transform: rotateX(0deg);
+                }
+                &_back {
+                    transform: rotateX(180deg);
+                }
             }
         }
 
-        &--flipped {
+        &.svFlipPanel--flipped {
+            .svFlipPanel__content {
+                transform: rotateX(180deg);
+            }
+        }
+    }
+
+
+    .svFlipPanel--vertical {
+        .svFlipPanel {
+            &__content {
+                &_front {
+                    transform: rotateY(0deg);
+                }
+                &_back {
+                    transform: rotateY(180deg);
+                }
+            }
+        }
+        &.svFlipPanel--flipped {
             .svFlipPanel__content {
                 transform: rotateY(180deg);
             }

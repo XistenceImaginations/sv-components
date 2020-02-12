@@ -5,6 +5,8 @@
         Title(size="2") SideBar
         Section
             Article(title="Sidebar Content") Some side bar content
+        Section
+            TOC
         Grid
             Tile(width="4",height="4",clip="{false}",gap="2px")
                 FlipPanel
@@ -31,7 +33,7 @@
                     .wrapper(slot="back",style="background-color: var(--bg-color-light);")
                         .AppIcon.AppIcon--active: Icon(icon="pencil-squared")
             Tile(width="4",height="4",clip="{false}",gap="2px")
-                FlipPanel
+                FlipPanel(on:flip='{switchTheme}',horizontal)
                     .wrapper(slot="front",style="background-color: var(--bg-color);")
                         .AppIcon: Icon(icon="tumblr-squared")
                     .wrapper(slot="back",style="background-color: var(--bg-color-light);")
@@ -339,8 +341,41 @@
             Title(size="2") Accordion
             Section
                 Accordion
-                    AccordionEntry(title="Tab A") Content A
-                    AccordionEntry(title="Tab B") Content B
+                    AccordionEntry(title="Tab 'Test Content: Card'")
+                        Card
+                            .wrapper(slot="image")
+                                Image(url="{images[0].url}",focal="{images[0].focal}")
+                            span(slot="shortDesc") Short Description
+                            span(slot="longDesc") Long Description
+                    AccordionEntry(title="Tab 'Test Content: Grid'")
+                        Grid
+                            +each('images as image')
+                                Tile(width="{image.width}",height="{image.height}",gap="{gridGap}")
+                                    Image(url="{image.url}",focal="{image.focal}")
+                                    Overlay
+                                        Label {image.desc}
+                                        a(href="foo",style="pointer-events:all;")
+                                            Icon(icon="help")
+                            Tile(width="6",height="3",clip="{false}",gap="{gridGap}")
+                                FlipPanel
+                                    .wrapper(slot="front",style="box-shadow:0 10px 20px rgba(0,0,0,.25)")
+                                        Image(url="{images[0].url}",focal="{images[0].focal}")
+                                        Overlay
+                                            Label Click to flip
+                                            a(href="foo",style="pointer-events:all;")
+                                                Icon(icon="help")
+                                    .wrapper(slot="back",style="padding:1em;box-shadow:0 10px 20px rgba(0,0,0,.25);background-color: #ddd;")
+                                        Article(title="Image Title") {images[0].desc} (Click to flip back)
+                            Tile(width="6",height="3",clip="{false}",gap="{gridGap}")
+                                FlipPanel
+                                    .wrapper(slot="front",style="box-shadow:0 10px 20px rgba(0,0,0,.25)")
+                                        Image(url="{images[1].url}",focal="{images[1].focal}")
+                                        Overlay
+                                            Label Click to flip
+                                            a(href="foo",style="pointer-events:all;")
+                                                Icon(icon="help")
+                                    .wrapper(slot="back",style="padding:1em;box-shadow:0 10px 20px rgba(0,0,0,.25);background-color: #ddd;")
+                                        Article(title="Image Title") {images[1].desc} (Click to flip back)
                     AccordionEntry(title="Tab C") Content C
                     AccordionEntry(title="Tab D") Content D
                     AccordionEntry(title="Tab E") Content E
@@ -370,8 +405,17 @@
                         | When added you can toggle the SideBar by calling <Code>'sidebar.show'</Code>.<br>
                         | As container the SideBar can be filled with any kind of content.<br>
                         | It'll stay fixed when scrolling.
+                        | (Tip: click the logo in the top/left corner to open/close the sidebar)
                     TextBlock(title="Trigger:")
                         | <Code>button(on:click='&#123;sidebar.show&#125;')</Code>
+
+            Title(size="2") Code
+            Section
+                Description(title="About code-blocks")
+                    TextBlock
+                        | This is a small atom to present code
+                    TextBlock(title="Examples:")
+                        Code Some test-code
 
         PageBlock(hatched)
             Title(size="2") Slider
@@ -381,9 +425,6 @@
             Section TO BE DONE
 
             Title(size="2") Tabbed pane
-            Section TO BE DONE
-
-            Title(size="2") Code
             Section TO BE DONE
 
             Title(size="2") Description
@@ -420,9 +461,6 @@
             Section TO BE DONE
 
             Title(size="2") Tile
-            Section TO BE DONE
-
-            Title(size="2") Title
             Section TO BE DONE
 
             Title(size="2") Page
@@ -465,6 +503,7 @@
     import TextBlock      from './component/TextBlock.svelte';
     import Tile           from './component/Tile.svelte';
     import Title          from './component/Title.svelte';
+    import TOC            from './component/TOC.svelte';
     import Wiper          from './component/Wiper.svelte';
     import WiperPage      from './component/WiperPage.svelte';
 
@@ -487,6 +526,18 @@
     function onClick (e) {
         if (e.ctrlKey) {
             alert('Special');
+        }
+    }
+
+    function switchTheme (e) {
+        if (e.detail.state) {
+            document.body.classList.remove('theme--light');
+            document.body.classList.add('theme--dark');
+            console.log('dark');
+        } else {
+            document.body.classList.remove('theme--dark');
+            document.body.classList.add('theme--light');
+            console.log('light');
         }
     }
 
@@ -534,11 +585,16 @@
             left: 50%;
             transform: translate(-50%,-50%);
             font-size: 4em;
+            text-shadow: -1px -1px 0px var(--fg-color), 1px -1px 0px var(--fg-color), -1px 1px 0px var(--fg-color), 1px 1px 0px var(--fg-color);
+            color: var(--bg-color);
         }
 
         &--active {
             a {
-                color: var(--primary-color);
+                text-shadow: none;
+                //color: var(--primary-color);
+                //text-shadow: -1px -1px 0px var(--fg-color), 1px -1px 0px var(--fg-color), -1px 1px 0px var(--fg-color), 1px 1px 0px var(--fg-color);
+                color: var(--fg-color);
             }
         }
     }

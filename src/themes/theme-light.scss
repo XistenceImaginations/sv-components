@@ -12,3 +12,71 @@ $themeSecondaryText: $themeTextInverse;
 $themeShadow       : rgb(255, 255, 255);
 $positive          : rgb(  0, 191,   0);
 $negative          : rgb(191,   0,   0);
+
+/**
+ * Custom Properties vs. SCSS-vars
+ *
+ * Focus here is on custom properties. They allow use to share variables w/o the
+ *  need important them in each component like with SCSS-vars (if they're defined
+ *  in a shared file).
+ * You can also change custom properties during runtime, while SCSS-vars only affect
+ *  things when you build the final code.
+ * So the point here is to use custom properties between components and to use
+ *  SCSS-vars mainly in a component itself.
+ */
+ .theme--light {
+  --bg-color               : #{$themeBg};
+  --bg-color-dark          : #{darken($themeBg, $colorVariation)};
+  --bg-color-light         : #{lighten($themeBg, $colorVariation)};
+  --fg-color               : #{$themeFg};
+  --font-main              : 'Titillium Web', sans-serif; // TODO to/from theme
+  --font-size              : 16px; // TODO to/from theme
+  --element-bg-color       : #{fade-out($themeFg, .85)};
+  --element-bg-color-alpha : #{fade-out($themeFg, .95)};
+  --text-color             : #{$themeText};
+  --text-color-alpha       : #{fade-out($themeText, .5)};
+  --text-color-light       : #{lighten($themeText, $colorVariation)};
+  --text-color-inverse     : #{$themeTextInverse};
+  --text-shadow-dark       : 0 0 10px #{fade-out($themeShadow, 0)}; // TODO themeShadow isn't ideal at this point, we need a real shadow and a shadow as contrast to background
+  --box-shadow-dark        : 0 10px 20px rgba(0, 0, 0, .25); // TODO themeShadow isn't ideal at this point, we need a real shadow and a shadow as contrast to background // #{fade-out($themeShadow, .75)};
+  --primary-color          : #{$themePrimary};
+  --primary-color-alpha    : #{fade-out($themePrimary, .5)};
+  --primary-color-light    : #{lighten($themePrimary, $colorVariation)};
+  --primary-color-dark     : #{darken($themePrimary, $colorVariation)};
+  --primary-color-lighter  : #{lighten($themePrimary, $intenseColorVariation)};
+  --primary-color-darker   : #{darken($themePrimary, $intenseColorVariation)};
+  --primary-text-color     : #{$themePrimaryText};
+  --secondary-color        : #{$themeSecondary};
+  --secondary-color-alpha  : #{fade-out($themeSecondary, .5)};
+  --secondary-color-light  : #{lighten($themeSecondary, $colorVariation)};
+  --secondary-color-dark   : #{darken($themeSecondary, $colorVariation)};
+  --secondary-color-lighter: #{lighten($themeSecondary, $intenseColorVariation)};
+  --secondary-color-darker : #{darken($themeSecondary, $intenseColorVariation)};
+  --secondary-text-color   : #{$themeSecondaryText};
+  --positive-color         : #{$positive};
+  --positive-color-alpha   : #{fade-out($positive, .5)};
+  --positive-color-light   : #{lighten($positive, $colorVariation)};
+  --positive-color-dark    : #{darken($positive, $colorVariation)};
+  --positive-color-lighter : #{lighten($positive, $intenseColorVariation)};
+  --positive-color-darker  : #{darken($positive, $intenseColorVariation)};
+  --positive-text-color    : #{$themeSecondaryText};
+  --negative-color         : #{$negative};
+  --negative-color-alpha   : #{fade-out($negative, .5)};
+  --negative-color-light   : #{lighten($negative, $colorVariation)};
+  --negative-color-dark    : #{darken($negative, $colorVariation)};
+  --negative-color-lighter : #{lighten($negative, $intenseColorVariation)};
+  --negative-color-darker  : #{darken($negative, $intenseColorVariation)};
+  --negative-text-color    : #{$themeSecondaryText};
+  --overlay-dark           : #{fade-out($themeBg, .5)};
+  --bar-gradient           : linear-gradient(
+      180deg,
+      #{change-color($themeShadow, $alpha:  .5 )}   0%,
+      #{change-color($themeShadow, $alpha:  .25)}  75%,
+      #{change-color($themeShadow, $alpha: 0   )} 100%);
+  --animation-duration     : 250ms;
+  --animation-duration-fast: 175ms;
+  --animation-duration-slow: 375ms;
+
+
+  --debug-color           : rgba(255,0,255,.25);
+}

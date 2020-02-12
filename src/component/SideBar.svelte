@@ -39,6 +39,14 @@
         background-color: var(--bg-color-dark);
         transition: left 250ms;
         padding: 0 1em;
+        z-index: $z-ui;
+        overflow-y: auto;
+        //overflow: hidden;
+
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     .--showSideBar {

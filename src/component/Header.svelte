@@ -10,7 +10,6 @@
         position: sticky;
         left: 0;
         top: 0;
-        z-index: 1;
         width: 100%;
         transition: background-color var(--animation-duration-slow),
                     box-shadow       var(--animation-duration-slow);

@@ -1,16 +1,18 @@
 <template lang="pug">
-    .svAccordionEntry(class="{expandedStyle}")
-        .svAccordionEntry__title(on:click="{toggle}") {title}
-        .svAccordionEntry__content
-            slot
+    .svAccordionEntry__title(on:click="{toggle}",bind:this="{titleElm}",class="{expandedTitle}") {title}
+    .svAccordionEntry__content(bind:this="{contentElm}",class="{expandedContent}")
+        slot
 </template>
 
 <script>
     export let title = 'N/A';
 
     let expanded = false;
+    let titleElm;
+    let contentElm;
 
-    $: expandedStyle = expanded ? 'svAccordionEntry--expanded' : '';
+    $: expandedTitle   = expanded ? 'svAccordionEntry__title--expanded' : '';
+    $: expandedContent = expanded ? 'svAccordionEntry__content--expanded' : '';
 
     function toggle () {
         expanded = !expanded;
@@ -27,12 +29,15 @@
 
     .svAccordionEntry {
         &__title {
-            background-color: var(--primary-color-light);
+            background-color: var(--primary-color-lighter);
+            border-top: 1px solid  var(--primary-color-lighter);
             color: white;
             width: 100%;
             padding: .5em;
             font-size: 1.25em;
-            font-weight: bolder;
+            font-weight: normal;
+            transition: background-color 250ms ease-in;
+            cursor: pointer;
 
             &::before {
                 font-family: 'xi_icon_collection';
@@ -41,39 +46,34 @@
                 content: '\e87c';
                 margin-right: 8px;
                 color: rgba(255,255,255,.5);
+                transition: padding 250ms ease-in;
+            }
+
+            &--expanded {
+                font-weight: bolder;
+                background-color: var(--primary-color-light);
+
+                &::before {
+                    content: '\e87e';
+                    padding-right: .5em;
+                }
+            }
+
+            &:nth-child(1) {
+                border-top: none;
             }
         }
 
         &__content {
+            max-height: 0;
+            transition: max-height 250ms ease-out, margin 250ms ease-out;
             overflow: hidden;
-            height: 0;
-            margin: 0 .5em;
-            //max-height: 0;
-            //transition: max-height 500ms ease-out;
-        }
+            margin: 0 1em;
 
-        & + .svAccordionEntry {
-            border-top: 1px solid  var(--primary-color-lighter);
-        }
-
-        &--expanded {
-            .svAccordionEntry {
-                &__title {
-                    &::before {
-                        content: '\e87e';
-                    }
-                }
-
-                &__content {
-                    height: min-content;
-                    margin: .5em;
-                    //max-height: 80px;
-                    //transition: max-height 500ms ease-in;
-                }
-            }
-
-            & + .svAccordionEntry {
-                border-top: 1px solid transparent;
+            &--expanded {
+                margin: 1em 1em;
+                max-height: 1200px;
+                transition: max-height 250ms ease-in, margin 250ms ease-in;
             }
         }
     }
