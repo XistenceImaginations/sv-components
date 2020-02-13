@@ -7,10 +7,12 @@
 </template>
 
 <script>
+    import { afterUpdate } from 'svelte';
     // TODO - document: scroll into view when clicking entry
     // TODO - marker: scroll into view
 
     let titles = [];
+    let entries = [];
     let area;
     let titleInFocus;
 
@@ -23,10 +25,13 @@
 
     function updateMarker(){
         let viewHeightHalf = window.innerHeight / 2;
-        let entries = Array.from(document.querySelectorAll('.svToc__entry'));
         let container = document.querySelector('.svToc');
         let marker = document.querySelector('.svToc__marker');
         let found;
+
+        if (entries.length === 0) {
+            entries = Array.from(document.querySelectorAll('.svToc__entry'));
+        }
 
         titles.forEach(title => {
             let bounds = title.elm.getBoundingClientRect();
@@ -39,7 +44,7 @@
         if (found && found !== titleInFocus) {
             titleInFocus = found;
 
-            if (titleInFocus) {
+            if (titleInFocus && titleInFocus.index >= 0 && titleInFocus.index < entries.length ) {
                 let containerBounds = container.getBoundingClientRect();
                 let entryBounds = entries[titleInFocus.index].getBoundingClientRect();
                 
@@ -47,6 +52,7 @@
                 marker.style.height = entryBounds.height + 'px';
     
                 let markerBounds = marker.getBoundingClientRect();
+
                 container.scrollTo(0, markerBounds.top);
             }
         }
@@ -85,6 +91,12 @@
         document.body.appendChild(area);
 
         updateMarker();
+    });
+
+    afterUpdate(() => {
+        if (entries.length === 0) {
+            updateMarker();
+        }
     });
 </script>
 

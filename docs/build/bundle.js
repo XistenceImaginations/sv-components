@@ -108,6 +108,9 @@ var app = (function () {
             throw new Error(`Function called outside component initialization`);
         return current_component;
     }
+    function afterUpdate(fn) {
+        get_current_component().$$.after_update.push(fn);
+    }
     function createEventDispatcher() {
         const component = get_current_component();
         return (type, detail) => {
@@ -4976,6 +4979,7 @@ var app = (function () {
 
     function instance$t($$self, $$props, $$invalidate) {
     	let titles = [];
+    	let entries = [];
     	let area;
     	let titleInFocus;
 
@@ -4987,10 +4991,13 @@ var app = (function () {
 
     	function updateMarker() {
     		let viewHeightHalf = window.innerHeight / 2;
-    		let entries = Array.from(document.querySelectorAll(".svToc__entry"));
     		let container = document.querySelector(".svToc");
     		let marker = document.querySelector(".svToc__marker");
     		let found;
+
+    		if (entries.length === 0) {
+    			entries = Array.from(document.querySelectorAll(".svToc__entry"));
+    		}
 
     		titles.forEach(title => {
     			let bounds = title.elm.getBoundingClientRect();
@@ -5003,7 +5010,7 @@ var app = (function () {
     		if (found && found !== titleInFocus) {
     			titleInFocus = found;
 
-    			if (titleInFocus) {
+    			if (titleInFocus && titleInFocus.index >= 0 && titleInFocus.index < entries.length) {
     				let containerBounds = container.getBoundingClientRect();
     				let entryBounds = entries[titleInFocus.index].getBoundingClientRect();
     				marker.style.top = entryBounds.top - containerBounds.top + "px";
@@ -5048,12 +5055,19 @@ var app = (function () {
     		updateMarker();
     	});
 
+    	afterUpdate(() => {
+    		if (entries.length === 0) {
+    			updateMarker();
+    		}
+    	});
+
     	$$self.$capture_state = () => {
     		return {};
     	};
 
     	$$self.$inject_state = $$props => {
     		if ("titles" in $$props) $$invalidate("titles", titles = $$props.titles);
+    		if ("entries" in $$props) entries = $$props.entries;
     		if ("area" in $$props) area = $$props.area;
     		if ("titleInFocus" in $$props) titleInFocus = $$props.titleInFocus;
     	};
