@@ -43,7 +43,7 @@
     Header
         NavBar
             span(slot="title")
-                img(on:click="{sidebar.show}",src="/assets/icons/app-icon.jpg",style="width:1.5em;height:1.5em;vertical-align:text-bottom;margin-right:.5em")
+                img(on:click="{sidebar.show}",src="assets/icons/app-icon.jpg",style="width:1.5em;height:1.5em;vertical-align:text-bottom;margin-right:.5em")
                 span Svelte Components Test Page
             div(slot="icons")
                 IconBar

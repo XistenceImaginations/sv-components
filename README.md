@@ -6,7 +6,7 @@ It is more ment to be an example (one of many) how to do things in [Svelte](http
 This project is based on a very plain [Svelte](https://svelte.dev/), in combination with [Pug](https://pugjs.org/api/getting-started.html) and [SCSS/SASS](https://sass-lang.com/).
 
 Demo-Page:
-> https://xistenceimaginations.github.io/sv-components/
+> https://xistenceimaginations.github.io/sv-components
 
 ## Requirements
 - You'll need to have [Node.js](https://nodejs.org) installed
