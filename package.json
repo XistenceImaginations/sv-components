@@ -16,7 +16,7 @@
   "devDependencies": {
     "serialize-javascript": ">=2.1.1",
     "node-sass": "^4.13.0",
-    "postcss": "^7.0.23",
+    "postcss": "^7.0.36",
     "pug": "^2.0.4",
     "pug2svelte": "0.0.2-alpha.9",
     "rollup": "^1.12.0",
