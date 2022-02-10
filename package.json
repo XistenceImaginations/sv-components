@@ -15,7 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "serialize-javascript": ">=2.1.1",
-    "node-sass": "^4.13.0",
+    "node-sass": "^7.0.0",
     "postcss": "^7.0.23",
     "pug": "^2.0.4",
     "pug2svelte": "0.0.2-alpha.9",
